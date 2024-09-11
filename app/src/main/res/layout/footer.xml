@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/footer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrincipal"
+    android:orientation="vertical"
+    android:padding="8dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+
+    <TextView
+        android:id="@+id/copyright_primer_linea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/copyright_uno"
+        android:textAlignment="center"
+        android:textColor="@color/mainColorLightText"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/copyright_segunda_linea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/copyright_dos"
+        android:textAlignment="center"
+        android:textColor="@color/mainColorLightText"
+        android:textSize="17sp" />
+</LinearLayout>

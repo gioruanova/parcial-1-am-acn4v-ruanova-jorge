@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:background="@color/colorPrincipal"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="15dp"
+    android:paddingStart="5dp"
+    android:paddingLeft="5dp"
+    android:paddingEnd="5dp"
+    android:paddingRight="5dp"
+    android:paddingBottom="5dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+
+    app:layout_constraintTop_toTopOf="parent">
+
+    <ImageView
+        android:id="@+id/logo_applicacion"
+        android:layout_width="54dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/logo_descripcion"
+        android:src="@drawable/avatar_default" />
+
+    <LinearLayout
+        android:id="@+id/container_usuario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="end"
+        android:orientation="vertical"
+        android:textAlignment="viewEnd">
+
+        <TextView
+            android:id="@+id/mensaje_bienvenida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mensaje_bienvenida"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/mainColorLightText"
+            android:textSize="@dimen/texto_secundario" />
+
+        <TextView
+            android:id="@+id/usuario_logueado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/usuario_logueado"
+            android:textColor="@color/mainColorLightText"
+            android:textSize="@dimen/texto_principal"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</LinearLayout>
