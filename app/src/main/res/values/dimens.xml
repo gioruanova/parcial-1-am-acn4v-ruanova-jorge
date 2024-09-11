@@ -2,5 +2,5 @@
 <resources>
     <dimen name="texto_principal">17sp</dimen>
     <dimen name="texto_secundario">15sp</dimen>
-    <dimen name="texto_titulo">18sp</dimen>
+    <dimen name="texto_titulo">25sp</dimen>
 </resources>
