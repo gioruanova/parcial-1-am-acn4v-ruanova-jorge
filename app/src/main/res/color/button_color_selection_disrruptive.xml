@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--color base-->
+    <item android:color="@color/colorDisrruptivo" />
+
+    <!--color hover-->
+    <item android:color="@color/colorDisrruptivoSoft" android:state_pressed="true" />
+
+    <!--color deshabilitado?-->
+    <item android:color="@color/colorDeshabilitado" android:state_enabled="false" />
+</selector>

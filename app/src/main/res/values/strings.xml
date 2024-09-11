@@ -6,9 +6,15 @@
     <string name="mensaje_bienvenida">"Bienvenido: "</string>
     <string name="usuario_logueado">"Usuario logueado"</string>
 
-    <!--body-->
+    <!--body home-->
     <string name="titulo_home">"Bienvenido a Central de Turnos"</string>
 
+    <string name="btn_reserva">"Nueva Reserva"</string>
+    <string name="btn_mis_reservas">"Mis Reservas"</string>
+    <string name="btn_mis_datos">"Mis Datos"</string>
+    <string name="btn_mensajes">"Mensajes"</string>
+    <string name="btn_salir">"Salir"</string>
+    <!--fin body home-->
 
     <string name="copyright_uno">"Copyright © 2024, Central de turnos"</string>
     <string name="copyright_dos">"Todos los derechos reservados"</string>

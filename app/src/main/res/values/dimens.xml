@@ -3,4 +3,10 @@
     <dimen name="texto_principal">17sp</dimen>
     <dimen name="texto_secundario">15sp</dimen>
     <dimen name="texto_titulo">23sp</dimen>
+
+
+    <!--botones-->
+    <dimen name="texto_botones">20sp</dimen>
+    <dimen name="botones_borde">8dp</dimen>
+
 </resources>

@@ -10,6 +10,7 @@
     <color name="colorDeshabilitado">#959595</color>
 
     <color name="colorDisrruptivo">#FF9800</color>
+    <color name="colorDisrruptivoSoft">#D1A668</color>
 
     <color name="mainColorLightText">#FFFFFFFF</color>
     <color name="mainColorLightTextHover">#27316C</color>
