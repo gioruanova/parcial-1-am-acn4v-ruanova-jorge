@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">parcial-1-am-acn4a-ruanova-jorge</string>
+
+    <string name="mensaje_bienvenida">"Bienvenido: "</string>
+    <string name="usuario_logueado">"Usuario logueado"</string>
+
+
 </resources>

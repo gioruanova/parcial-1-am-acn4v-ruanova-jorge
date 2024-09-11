@@ -23,30 +23,35 @@
         android:paddingBottom="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorPrincipal"
+
+        >
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/logo_applicacion"
             android:layout_width="54dp"
             android:layout_height="50dp"
             android:layout_marginEnd="16dp"
             android:src="@drawable/avatar_default" />
 
         <TextView
-            android:id="@+id/bienvenido"
+            android:id="@+id/mensaje_bienvenida"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Bienvenido"
             android:textAlignment="viewEnd"
-            android:textColor="#FFFFFF" />
+            android:text="@string/mensaje_bienvenida"
+            android:textSize="@dimen/texto_secundario"
+            android:textColor="@color/mainColorLightText" />
 
         <TextView
             android:id="@+id/usuario_logueado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Usuario Logueado"
-            android:textColor="#FFFFFF" />
+            android:text="@string/usuario_logueado"
+            android:textSize="@dimen/texto_principal"
+            android:textColor="@color/mainColorLightText" />
     </LinearLayout>
 
 

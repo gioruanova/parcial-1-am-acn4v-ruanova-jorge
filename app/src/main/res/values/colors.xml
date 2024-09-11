@@ -2,4 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrincipal">#6071D1</color>
+    <color name="colorSecundarioClaro">#3577BC</color>
+    <color name="colorSecundarioOscuro">#222C5C</color>
+
+    <color name="colorDeshabilitado">#959595</color>
+
+    <color name="colorDisrruptivo">#FF9800</color>
+
+    <color name="mainColorLightText">#FFFFFFFF</color>
+    <color name="mainColorLightTextHover">#27316C</color>
 </resources>
