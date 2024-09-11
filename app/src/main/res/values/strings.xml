@@ -16,6 +16,13 @@
     <string name="btn_salir">"Salir"</string>
     <!--fin body home-->
 
+    <!--body nuevo turno-->
+    <string name="titulo_nuevo_turno">"Solicitud de turno"</string>
+    <string name="btn_solicitar_turno">"Solicitar"</string>
+    <string name="btn_home">"Cancelar"</string>
+
+
+
     <string name="copyright_uno">"Copyright © 2024, Central de turnos"</string>
     <string name="copyright_dos">"Todos los derechos reservados"</string>
 
