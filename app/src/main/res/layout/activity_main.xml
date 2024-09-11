@@ -33,7 +33,7 @@
             android:layout_width="54dp"
             android:layout_height="50dp"
             android:layout_marginEnd="16dp"
-            android:contentDescription="Reserva de Turnos"
+            android:contentDescription="@string/logo_descripcion"
             android:src="@drawable/avatar_default" />
 
         <TextView
