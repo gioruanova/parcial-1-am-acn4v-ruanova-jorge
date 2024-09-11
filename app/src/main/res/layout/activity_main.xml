@@ -75,6 +75,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
                 android:gravity="center">
 
                 <TextView
@@ -93,22 +94,24 @@
                 android:gravity="center">
 
                 <Button
-                    android:id="@+id/btn_reserva"
+                    android:id="@+id/btn_nueva_reserva"
                     android:layout_width="0dp"
                     android:layout_height="90dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:textAllCaps="true"
-                    android:text="Reserva"/>
+                    app:cornerRadius="8dp"
+                    android:text="Nueva Reserva"/>
 
                 <Button
-                    android:id="@+id/button4"
+                    android:id="@+id/btn_mis_reservas"
                     android:layout_width="0dp"
                     android:layout_height="90dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:textAllCaps="true"
-                    android:text="Reserva"/>
+                    app:cornerRadius="8dp"
+                    android:text="Mis Reservas"/>
             </TableRow>
 
             <TableRow
@@ -117,22 +120,24 @@
                 android:gravity="center">
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btn_mensajes"
                     android:layout_width="0dp"
                     android:layout_height="90dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:textAllCaps="true"
-                    android:text="Reserva"/>
+                    app:cornerRadius="8dp"
+                    android:text="Mensajes"/>
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/btn_mis_datos"
                     android:layout_width="0dp"
                     android:layout_height="90dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:textAllCaps="true"
-                    android:text="Reserva"/>
+                    app:cornerRadius="8dp"
+                    android:text="Mis Datos"/>
             </TableRow>
 
             <TableRow
@@ -141,13 +146,14 @@
                 android:gravity="center">
 
                 <Button
-                    android:id="@+id/button5"
+                    android:id="@+id/btn_salir"
                     android:layout_width="0dp"
-                    android:layout_height="90dp"
+                    android:layout_height="50dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     android:textAllCaps="true"
-                    android:text="Reserva"/>
+                    app:cornerRadius="8dp"
+                    android:text="Salir"/>
             </TableRow>
 
 
@@ -165,7 +171,8 @@
         android:background="@color/colorPrincipal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="8dp">
 
         <TextView
             android:id="@+id/copyright_primer_linea"
