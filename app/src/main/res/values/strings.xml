@@ -5,4 +5,7 @@
     <string name="usuario_logueado">"Usuario logueado"</string>
 
 
+    <string name="copyright_uno">"Copyright © 2024, Reserva de turnos"</string>
+    <string name="copyright_dos">"Todos los derechos reservados"</string>
+
 </resources>
