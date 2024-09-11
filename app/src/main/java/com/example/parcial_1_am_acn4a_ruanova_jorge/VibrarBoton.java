@@ -4,19 +4,16 @@ import android.content.Context;
 import android.os.Build;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
-import android.view.View;
 
 public class VibrarBoton {
 
-    private Context context;
-    private Vibrator vibrator;
+    private final Vibrator vibrator;
 
     public VibrarBoton(Context context) {
-        this.context = context;
         this.vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
     }
 
-    public void vibrate(View view) {
+    public void vibrate() {
         if (vibrator != null && vibrator.hasVibrator()) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 vibrator.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));

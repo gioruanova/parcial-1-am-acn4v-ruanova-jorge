@@ -29,18 +29,18 @@ public class MainActivity extends AppCompatActivity {
 
 
         Button btnNuevoTurno = findViewById(R.id.btn_nuevo_turno);
-        btnNuevoTurno.setOnClickListener(view -> vibrarBoton.vibrate(view));
+        btnNuevoTurno.setOnClickListener(view -> vibrarBoton.vibrate());
 
         Button btnMisTurnos = findViewById(R.id.btn_mis_turnos);
-        btnMisTurnos.setOnClickListener(view -> vibrarBoton.vibrate(view));
+        btnMisTurnos.setOnClickListener(view -> vibrarBoton.vibrate());
 
         Button btnMensajes = findViewById(R.id.btn_mensajes);
-        btnMensajes.setOnClickListener(view -> vibrarBoton.vibrate(view));
+        btnMensajes.setOnClickListener(view -> vibrarBoton.vibrate());
 
         Button btnMisDatos = findViewById(R.id.btn_mis_datos);
-        btnMisDatos.setOnClickListener(view -> vibrarBoton.vibrate(view));
+        btnMisDatos.setOnClickListener(view -> vibrarBoton.vibrate());
 
         Button btnSalir = findViewById(R.id.btn_salir);
-        btnSalir.setOnClickListener(view -> vibrarBoton.vibrate(view));
+        btnSalir.setOnClickListener(view -> vibrarBoton.vibrate());
     }
 }
