@@ -36,29 +36,39 @@
             android:contentDescription="@string/logo_descripcion"
             android:src="@drawable/avatar_default" />
 
-        <TextView
-            android:id="@+id/mensaje_bienvenida"
+        <LinearLayout
+            android:id="@+id/container_usuario"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/mensaje_bienvenida"
-            android:textAlignment="viewEnd"
-            android:textColor="@color/mainColorLightText"
-            android:textSize="@dimen/texto_secundario" />
+            android:gravity="end"
+            android:orientation="vertical"
+            android:textAlignment="viewEnd">
 
-        <TextView
-            android:id="@+id/usuario_logueado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/usuario_logueado"
-            android:textColor="@color/mainColorLightText"
-            android:textSize="@dimen/texto_principal" />
+            <TextView
+                android:id="@+id/mensaje_bienvenida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mensaje_bienvenida"
+                android:textAlignment="viewEnd"
+                android:textColor="@color/mainColorLightText"
+                android:textSize="@dimen/texto_secundario" />
+
+            <TextView
+                android:id="@+id/usuario_logueado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/usuario_logueado"
+                android:textColor="@color/mainColorLightText"
+                android:textSize="@dimen/texto_principal" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/body_content"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="10dp"
@@ -67,113 +77,111 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header">
 
-        <TableLayout
-            android:id="@+id/inner_content_btns"
+
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/titulo_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/titulo_home"
-                    android:textAlignment="center"
-                    android:textColor="@color/mainColorLightText"
-                    android:textSize="@dimen/texto_titulo" />
-            </TableRow>
-
-            <TableRow
-                style="?android:attr/buttonBarStyle"
+            <TextView
+                android:id="@+id/titulo_home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:text="@string/titulo_home"
+                android:textAlignment="center"
+                android:textColor="@color/mainColorLightText"
+                android:textSize="@dimen/texto_titulo" />
+        </TableRow>
 
-                <Button
-                    android:id="@+id/btn_nueva_reserva"
-                    android:layout_width="0dp"
-                    android:layout_height="90dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/button_color_selection"
-                    android:text="@string/btn_reserva"
-                    android:textAllCaps="true"
-                    android:textColor="@color/button_text_color"
-                    android:textSize="@dimen/texto_botones"
-                    app:cornerRadius="@dimen/botones_borde" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
 
-                <Button
-                    android:id="@+id/btn_mis_reservas"
-                    android:layout_width="0dp"
-                    android:layout_height="90dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/button_color_selection"
-                    android:text="@string/btn_mis_reservas"
-                    android:textAllCaps="true"
-                    android:textColor="@color/button_text_color"
-                    android:textSize="@dimen/texto_botones"
-                    app:cornerRadius="@dimen/botones_borde" />
-            </TableRow>
+            <Button
+                android:id="@+id/btn_nueva_reserva"
+                android:layout_width="0dp"
+                android:layout_height="90dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/button_color_selection"
+                android:text="@string/btn_nuevo_turno"
+                android:textAllCaps="true"
+                android:textColor="@color/button_text_color"
+                android:textSize="@dimen/texto_botones"
+                app:cornerRadius="@dimen/botones_borde"
+                tools:ignore="ButtonStyle" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center">
+            <Button
+                android:id="@+id/btn_mis_reservas"
+                android:layout_width="0dp"
+                android:layout_height="90dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/button_color_selection"
+                android:text="@string/btn_mis_turnos"
+                android:textAllCaps="true"
+                android:textColor="@color/button_text_color"
+                android:textSize="@dimen/texto_botones"
+                app:cornerRadius="@dimen/botones_borde"
+                tools:ignore="ButtonStyle" />
+        </TableRow>
 
-                <Button
-                    android:id="@+id/btn_mensajes"
-                    android:layout_width="0dp"
-                    android:layout_height="90dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/button_color_selection"
-                    android:text="@string/btn_mensajes"
-                    android:textAllCaps="true"
-                    android:textColor="@color/button_text_color"
-                    android:textSize="@dimen/texto_botones"
-                    app:cornerRadius="@dimen/botones_borde" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
 
-                <Button
-                    android:id="@+id/btn_mis_datos"
-                    android:layout_width="0dp"
-                    android:layout_height="90dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/button_color_selection"
-                    android:text="@string/btn_mis_datos"
-                    android:textAllCaps="true"
-                    android:textColor="@color/button_text_color"
-                    android:textSize="@dimen/texto_botones"
-                    app:cornerRadius="@dimen/botones_borde" />
-            </TableRow>
+            <Button
+                android:id="@+id/btn_mensajes"
+                android:layout_width="0dp"
+                android:layout_height="90dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/button_color_selection"
+                android:text="@string/btn_mensajes"
+                android:textAllCaps="true"
+                android:textColor="@color/button_text_color"
+                android:textSize="@dimen/texto_botones"
+                app:cornerRadius="@dimen/botones_borde"
+                tools:ignore="ButtonStyle" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center">
+            <Button
+                android:id="@+id/btn_mis_datos"
+                android:layout_width="0dp"
+                android:layout_height="90dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/button_color_selection"
+                android:text="@string/btn_mis_datos"
+                android:textAllCaps="true"
+                android:textColor="@color/button_text_color"
+                android:textSize="@dimen/texto_botones"
+                app:cornerRadius="@dimen/botones_borde"
+                tools:ignore="ButtonStyle" />
+        </TableRow>
 
-                <Button
-                    android:id="@+id/btn_salir"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/button_color_selection_disrruptive"
-                    android:text="@string/btn_salir"
-                    android:textAllCaps="true"
-                    android:textColor="@color/button_text_color"
-                    android:textSize="@dimen/texto_botones"
-                    app:cornerRadius="@dimen/botones_borde" />
-            </TableRow>
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
 
+            <Button
+                android:id="@+id/btn_salir"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:layout_weight="0.5"
+                android:backgroundTint="@color/button_color_selection_disrruptive"
+                android:minWidth="200dip"
+                android:text="@string/btn_salir"
+                android:textAllCaps="true"
+                android:textColor="@color/button_text_color"
+                android:textSize="@dimen/texto_botones"
+                app:cornerRadius="@dimen/botones_borde" />
+        </TableRow>
 
-        </TableLayout>
 
     </LinearLayout>
 

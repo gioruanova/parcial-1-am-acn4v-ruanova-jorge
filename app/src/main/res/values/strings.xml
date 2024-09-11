@@ -9,8 +9,8 @@
     <!--body home-->
     <string name="titulo_home">"Bienvenido a Central de Turnos"</string>
 
-    <string name="btn_reserva">"Nueva Reserva"</string>
-    <string name="btn_mis_reservas">"Mis Reservas"</string>
+    <string name="btn_nuevo_turno">"Nuevo Turno"</string>
+    <string name="btn_mis_turnos">"Mis Turnos"</string>
     <string name="btn_mis_datos">"Mis Datos"</string>
     <string name="btn_mensajes">"Mensajes"</string>
     <string name="btn_salir">"Salir"</string>
