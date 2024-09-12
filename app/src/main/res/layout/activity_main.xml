@@ -9,7 +9,6 @@
     tools:context=".MainActivity">
 
     <!-- header -->
-    <!--footer-->
     <include
         android:id="@+id/header"
         layout="@layout/header" />

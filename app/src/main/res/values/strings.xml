@@ -19,8 +19,47 @@
     <!--body nuevo turno-->
     <string name="titulo_nuevo_turno">"Solicitud de turno"</string>
     <string name="btn_solicitar_turno">"Solicitar"</string>
-    <string name="btn_home">"Cancelar"</string>
 
+    <string name="btn_home">"Volver"</string>
+
+    <string name="turno_fecha">"Seleccione una fecha para su turno"</string>
+
+    <!--Horarios disponibles-->
+    <string name="turno_hora">"Seleccione una hora para su turno"</string>
+
+    <string-array name="horarios_atencion">
+        <item>9:00</item>
+        <item>9:30</item>
+        <item>10:00</item>
+        <item>10:30</item>
+        <item>11:00</item>
+        <item>11:30</item>
+        <item>12:00</item>
+        <item>12:30</item>
+        <item>14:00</item>
+        <item>14:30</item>
+        <item>15:00</item>
+        <item>15:30</item>
+        <item>16:00</item>
+        <item>16:30</item>
+        <item>17:00</item>
+        <item>17:30</item>
+    </string-array>
+
+    <!--Horarios disponibles-->
+    <string name="tituloEspecialidad">"Seleccione una especialidad"</string>
+    <string-array name="listado_especialidades">
+        <item>Guardia (fila virtual)</item>
+        <item>Kinesiologia General</item>
+        <item>Dentista</item>
+        <item>Cardiologia</item>
+        <item>Nutricionista</item>
+        <item>Pediatria</item>
+    </string-array>
+
+
+<!--    Confirmacion turno-->
+    <string name="confirmacionTurno">"Muchas gracias"</string>
 
 
     <string name="copyright_uno">"Copyright © 2024, Central de turnos"</string>

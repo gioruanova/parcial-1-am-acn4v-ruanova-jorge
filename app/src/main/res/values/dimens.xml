@@ -9,4 +9,7 @@
     <dimen name="texto_botones">20sp</dimen>
     <dimen name="botones_borde">8dp</dimen>
 
+    <!--inputs-->
+    <dimen name="margenes_inputs">25dp</dimen>
+
 </resources>
