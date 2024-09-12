@@ -4,10 +4,19 @@ import java.util.ArrayList;
 
 public class RegistroTurnos {
 
-    private ArrayList<TurnoMedico> turnos;
+    private static RegistroTurnos instancia;
 
-    public RegistroTurnos() {
+    private final ArrayList<TurnoMedico> turnos;
+
+    private RegistroTurnos() {
         turnos = new ArrayList<>();
+    }
+
+    public static synchronized RegistroTurnos obtenerInstancia() {
+        if (instancia == null) {
+            instancia = new RegistroTurnos();
+        }
+        return instancia;
     }
 
     public void agregarTurno(TurnoMedico turno) {

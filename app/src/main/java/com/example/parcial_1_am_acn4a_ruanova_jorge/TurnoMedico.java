@@ -1,23 +1,32 @@
 package com.example.parcial_1_am_acn4a_ruanova_jorge;
 
+import java.security.SecureRandom;
 import java.util.Objects;
 
+
 public class TurnoMedico {
+
+    private static final SecureRandom random = new SecureRandom();
+
     private String especialidad;
     private String fechaTurno;
     private String horaTurno;
     private String usuario;
+    private String id;
+
+
 
     public TurnoMedico() {
-
     }
 
-    public TurnoMedico(String especialidad, String fechaTurno, String horaTurno) {
+    public TurnoMedico(String usuario, String especialidad, String fechaTurno, String horaTurno) {
         this.especialidad = especialidad;
         this.fechaTurno = fechaTurno;
         this.horaTurno = horaTurno;
-        this.usuario = "Usuario Pruebna";
+        this.id = generarNumeroDeIDAleatorio(10000);
+        this.usuario = usuario;
     }
+
 
     public String getEspecialidad() {
         return especialidad;
@@ -51,15 +60,16 @@ public class TurnoMedico {
         this.usuario = usuario;
     }
 
-    @Override
-    public String toString() {
-        return "TurnoMedico{" +
-                "especialidad='" + especialidad + '\'' +
-                ", fechaTurno='" + fechaTurno + '\'' +
-                ", horaTurno='" + horaTurno + '\'' +
-                ", usuario='" + usuario + '\'' +
-                '}';
+    public String getId() {
+        return id;
     }
+
+    public static String generarNumeroDeIDAleatorio(int limite) {
+        int numeroAleatorio = random.nextInt(limite);
+        return Integer.toString(numeroAleatorio);
+    }
+
+
 
     @Override
     public boolean equals(Object o) {
@@ -73,4 +83,6 @@ public class TurnoMedico {
     public int hashCode() {
         return Objects.hash(especialidad, fechaTurno, horaTurno, usuario);
     }
+
+
 }

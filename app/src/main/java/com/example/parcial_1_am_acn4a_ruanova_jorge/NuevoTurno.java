@@ -17,6 +17,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+
 import java.util.Calendar;
 
 public class NuevoTurno extends AppCompatActivity {
@@ -40,10 +41,14 @@ public class NuevoTurno extends AppCompatActivity {
             return insets;
         });
 
+        String nombreUsuario = UsuarioLogueado.getInstance().getNombreUsuario();
+        TextView usuarioLogueadoTextView = findViewById(R.id.usuario_logueado);
+
+        usuarioLogueadoTextView.setText(nombreUsuario);
+
         vibrarBoton = new VibrarBoton(this);
         Button btnNuevoTurno = findViewById(R.id.btn_solicitar_turno);
         Button btnVolverHome = findViewById(R.id.btn_volver_home);
-        TextView testeoTurno = findViewById(R.id.testeoTurno);
 
         btnVolverHome.setOnClickListener(view -> {
             Intent intent = new Intent(NuevoTurno.this, MainActivity.class);
@@ -104,10 +109,12 @@ public class NuevoTurno extends AppCompatActivity {
                 Toast.makeText(NuevoTurno.this, "Debe seleccionar una hora", Toast.LENGTH_LONG).show();
                 return;
             }
-//            testeoTurno.setText("Su turno para " + spinnerEspecialidad.getSelectedItem().toString() + " para el " + fechaSeleccionada + " en el horario de " + hora + "hs ha sido confirmado");
-            TurnoMedico turno = new TurnoMedico(especialidad, fecha, hora);
-            RegistroTurnos nuevoRegistro = new RegistroTurnos();
-            nuevoRegistro.agregarTurno(turno);
+
+
+
+            TurnoMedico turno = new TurnoMedico(nombreUsuario, especialidad, fecha, hora);
+            RegistroTurnos listaDeTurnos = RegistroTurnos.obtenerInstancia();
+            listaDeTurnos.agregarTurno(turno);
 
             Intent intent = new Intent(NuevoTurno.this, ConfirmacionTurno.class);
             vibrarBoton.vibrate();
@@ -120,6 +127,5 @@ public class NuevoTurno extends AppCompatActivity {
 
 
         });
-
     }
 }

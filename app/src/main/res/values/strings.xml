@@ -60,6 +60,9 @@
 
 <!--    Confirmacion turno-->
     <string name="confirmacionTurno">"Muchas gracias"</string>
+    <string name="info_turno">"Informacion sobre su turno"</string>
+    <string name="turno_confirmacion_texto">Estimado %1$s.%n%nSu turno para %2$s ha sido confirmado bajo el número de confirmación %3$s para el día %4$s en el horario de %5$s hs.</string>
+
 
 
     <string name="copyright_uno">"Copyright © 2024, Central de turnos"</string>

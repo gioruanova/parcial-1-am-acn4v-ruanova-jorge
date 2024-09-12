@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -17,10 +18,10 @@
         android:id="@+id/scroll_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/header"
         app:layout_constraintBottom_toTopOf="@id/footer"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:id="@+id/body_content"
@@ -63,9 +64,7 @@
                     android:text="@string/tituloEspecialidad"
                     android:textAlignment="center"
                     android:textColor="@color/mainColorLightText"
-                    android:textSize="@dimen/texto_secundario"
-                    android:labelFor="@id/spinnerEspecialidad"
-                    />
+                    android:textSize="@dimen/texto_secundario" />
 
                 <Spinner
                     android:id="@+id/spinnerEspecialidad"
@@ -80,7 +79,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:labelFor="@id/seleccionFecha"
                     android:text="@string/turno_fecha"
                     android:textAlignment="center"
                     android:textColor="@color/mainColorLightText"
@@ -93,8 +91,7 @@
                     android:layout_marginBottom="@dimen/margenes_inputs"
                     android:background="#6071D0"
                     android:clickable="true"
-                    android:focusable="true"
-                    android:inputType="date"
+                    android:focusable="false"
                     android:textAlignment="center"
                     android:textColor="@color/mainColorLightText"
                     android:textSize="@dimen/texto_secundario" />
@@ -104,7 +101,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:labelFor="@id/spinnerHorario"
                     android:text="@string/turno_hora"
                     android:textAlignment="center"
                     android:textColor="@color/mainColorLightText"
@@ -157,12 +153,7 @@
 
             </TableRow>
 
-            <TextView
-                android:id="@+id/testeoTurno"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="testeoTurno"
-                android:textColor="@color/mainColorLightText" />
+
         </LinearLayout>
     </ScrollView>
 

@@ -24,6 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/header">
+
         <TextView
             android:id="@+id/titulo_home"
             android:layout_width="match_parent"
@@ -37,88 +38,16 @@
             android:id="@+id/infoTurno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="probando"
+            android:text="@string/info_turno"
             android:textAlignment="center"
             android:textColor="@color/mainColorLightText"
             android:textSize="@dimen/texto_secundario" />
 
 
-
-<!--        <TableRow-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center">-->
-
-<!--            <Button-->
-<!--                android:id="@+id/btn_nuevo_turno"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="90dp"-->
-<!--                android:layout_margin="5dp"-->
-<!--                android:layout_weight="1"-->
-<!--                android:backgroundTint="@color/button_color_selection"-->
-<!--                android:text="@string/btn_nuevo_turno"-->
-<!--                android:textAllCaps="true"-->
-<!--                android:textColor="@color/button_text_color"-->
-<!--                android:textSize="@dimen/texto_botones"-->
-<!--                app:cornerRadius="@dimen/botones_borde"-->
-<!--                android:textStyle="bold"-->
-<!--                tools:ignore="ButtonStyle" />-->
-
-<!--            <Button-->
-<!--                android:id="@+id/btn_mis_turnos"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="90dp"-->
-<!--                android:layout_margin="5dp"-->
-<!--                android:layout_weight="1"-->
-<!--                android:backgroundTint="@color/button_color_selection"-->
-<!--                android:text="@string/btn_mis_turnos"-->
-<!--                android:textAllCaps="true"-->
-<!--                android:textColor="@color/button_text_color"-->
-<!--                android:textSize="@dimen/texto_botones"-->
-<!--                app:cornerRadius="@dimen/botones_borde"-->
-<!--                android:textStyle="bold"-->
-<!--                tools:ignore="ButtonStyle" />-->
-<!--        </TableRow>-->
-
-<!--        <TableRow-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center">-->
-
-<!--            <Button-->
-<!--                android:id="@+id/btn_mensajes"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="90dp"-->
-<!--                android:layout_margin="5dp"-->
-<!--                android:layout_weight="1"-->
-<!--                android:backgroundTint="@color/button_color_selection"-->
-<!--                android:text="@string/btn_mensajes"-->
-<!--                android:textAllCaps="true"-->
-<!--                android:textColor="@color/button_text_color"-->
-<!--                android:textSize="@dimen/texto_botones"-->
-<!--                app:cornerRadius="@dimen/botones_borde"-->
-<!--                android:textStyle="bold"-->
-<!--                tools:ignore="ButtonStyle" />-->
-
-<!--            <Button-->
-<!--                android:id="@+id/btn_mis_datos"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="90dp"-->
-<!--                android:layout_margin="5dp"-->
-<!--                android:layout_weight="1"-->
-<!--                android:backgroundTint="@color/button_color_selection"-->
-<!--                android:text="@string/btn_mis_datos"-->
-<!--                android:textAllCaps="true"-->
-<!--                android:textColor="@color/button_text_color"-->
-<!--                android:textSize="@dimen/texto_botones"-->
-<!--                app:cornerRadius="@dimen/botones_borde"-->
-<!--                android:textStyle="bold"-->
-<!--                tools:ignore="ButtonStyle" />-->
-<!--        </TableRow>-->
-
         <TableRow
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:gravity="center">
 
             <Button
