@@ -18,19 +18,24 @@
         android:id="@+id/scroll_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/header"
+        android:background="@drawable/bg_base"
         app:layout_constraintBottom_toTopOf="@id/footer"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/header">
 
         <LinearLayout
             android:id="@+id/body_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/fondo_contendores"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            android:paddingBottom="30dp"
             android:gravity="center"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:orientation="vertical">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -44,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/titulo_nuevo_turno"
                     android:textAlignment="center"
-                    android:textColor="@color/mainColorLightText"
+                    android:textColor="@color/colores_textos_dark"
                     android:textSize="@dimen/texto_titulo" />
             </TableRow>
 
@@ -63,15 +68,15 @@
                     android:layout_marginBottom="8dp"
                     android:text="@string/tituloEspecialidad"
                     android:textAlignment="center"
-                    android:textColor="@color/mainColorLightText"
+                    android:textColor="@color/colores_textos_dark"
                     android:textSize="@dimen/texto_secundario" />
 
                 <Spinner
                     android:id="@+id/spinnerEspecialidad"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="48dp"
                     android:layout_marginBottom="@dimen/margenes_inputs"
-                    android:background="#6071D0"
+                    android:background="@drawable/fondo_contendores"
                     android:textAlignment="center" />
 
                 <TextView
@@ -81,19 +86,22 @@
                     android:layout_marginBottom="8dp"
                     android:text="@string/turno_fecha"
                     android:textAlignment="center"
-                    android:textColor="@color/mainColorLightText"
+                    android:textColor="@color/colores_textos_dark"
                     android:textSize="@dimen/texto_secundario" />
 
                 <EditText
                     android:id="@+id/seleccionFecha"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="48dp"
                     android:layout_marginBottom="@dimen/margenes_inputs"
-                    android:background="#6071D0"
+                    android:autofillHints="@string/turno_fecha"
+                    android:background="@drawable/fondo_contendores"
                     android:clickable="true"
                     android:focusable="false"
+                    android:hint="@string/turno_fecha"
+                    android:inputType="date"
                     android:textAlignment="center"
-                    android:textColor="@color/mainColorLightText"
+                    android:textColor="@color/colores_textos_dark"
                     android:textSize="@dimen/texto_secundario" />
 
                 <TextView
@@ -103,28 +111,31 @@
                     android:layout_marginBottom="8dp"
                     android:text="@string/turno_hora"
                     android:textAlignment="center"
-                    android:textColor="@color/mainColorLightText"
+                    android:textColor="@color/colores_textos_dark"
                     android:textSize="@dimen/texto_secundario" />
 
                 <Spinner
                     android:id="@+id/spinnerHorario"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="48dp"
                     android:layout_marginBottom="@dimen/margenes_inputs"
-                    android:background="#6071D0"
+                    android:background="@drawable/fondo_contendores"
                     android:textAlignment="center" />
             </LinearLayout>
 
 
             <TableRow
                 android:id="@+id/turnosBtnContainer"
+                style="?android:attr/buttonBarStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"
                 android:gravity="center">
 
                 <Button
                     android:id="@+id/btn_solicitar_turno"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_margin="5dp"
@@ -139,6 +150,7 @@
 
                 <Button
                     android:id="@+id/btn_volver_home"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_margin="5dp"
