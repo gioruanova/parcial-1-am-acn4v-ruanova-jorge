@@ -28,6 +28,7 @@
     <string name="turno_hora">"Seleccione una hora para su turno"</string>
 
     <string-array name="horarios_atencion">
+        <item />
         <item>9:00</item>
         <item>9:30</item>
         <item>10:00</item>
@@ -49,6 +50,7 @@
     <!--Horarios disponibles-->
     <string name="tituloEspecialidad">"Seleccione una especialidad"</string>
     <string-array name="listado_especialidades">
+        <item />
         <item>Guardia (fila virtual)</item>
         <item>Kinesiologia General</item>
         <item>Dentista</item>

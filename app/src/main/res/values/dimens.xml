@@ -11,6 +11,6 @@
     <dimen name="botones_borde">8dp</dimen>
 
     <!--inputs-->
-    <dimen name="margenes_inputs">25dp</dimen>
+    <dimen name="margenes_inputs">15dp</dimen>
 
 </resources>
