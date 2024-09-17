@@ -14,7 +14,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    private VibrarBoton vibrarBoton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +32,10 @@ public class MainActivity extends AppCompatActivity {
         TextView usuarioLogueadoTextView = findViewById(R.id.usuario_logueado);
         usuarioLogueadoTextView.setText(UsuarioLogueado.getInstance().getNombreUsuario());
 
-        vibrarBoton = new VibrarBoton(this);
 
         Button btnNuevoTurno = findViewById(R.id.btn_nuevo_turno);
         btnNuevoTurno.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, NuevoTurno.class);
-            vibrarBoton.vibrate();
             ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(
                     MainActivity.this,
                     R.anim.slide_in_right,
@@ -48,15 +45,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button btnMisTurnos = findViewById(R.id.btn_mis_turnos);
-        btnMisTurnos.setOnClickListener(view -> vibrarBoton.vibrate());
 
         Button btnMensajes = findViewById(R.id.btn_mensajes);
-        btnMensajes.setOnClickListener(view -> vibrarBoton.vibrate());
 
         Button btnMisDatos = findViewById(R.id.btn_mis_datos);
-        btnMisDatos.setOnClickListener(view -> vibrarBoton.vibrate());
 
         Button btnSalir = findViewById(R.id.btn_salir);
-        btnSalir.setOnClickListener(view -> vibrarBoton.vibrate());
     }
 }

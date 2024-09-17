@@ -15,7 +15,6 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.ArrayList;
 
 public class ConfirmacionTurno extends AppCompatActivity {
-    private VibrarBoton vibrarBoton;
     String nombreUsuario = UsuarioLogueado.getInstance().getNombreUsuario();
 
     @Override
@@ -50,12 +49,10 @@ public class ConfirmacionTurno extends AppCompatActivity {
         }
 
 
-        vibrarBoton = new VibrarBoton(this);
         Button volverHome = findViewById(R.id.btn_volver_home);
 
         volverHome.setOnClickListener(view -> {
             Intent intent = new Intent(ConfirmacionTurno.this, MainActivity.class);
-            vibrarBoton.vibrate();
             startActivity(intent); // lanzo actividad home ->main
 
             // desplazamiento lateral

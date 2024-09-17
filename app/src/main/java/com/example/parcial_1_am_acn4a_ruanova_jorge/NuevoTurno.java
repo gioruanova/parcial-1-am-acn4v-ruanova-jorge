@@ -22,7 +22,6 @@ import java.util.Calendar;
 
 public class NuevoTurno extends AppCompatActivity {
 
-    private VibrarBoton vibrarBoton;
     private EditText selectorFecha;
 
     private Spinner spinnerEspecialidad;
@@ -46,13 +45,11 @@ public class NuevoTurno extends AppCompatActivity {
 
         usuarioLogueadoTextView.setText(nombreUsuario);
 
-        vibrarBoton = new VibrarBoton(this);
         Button btnNuevoTurno = findViewById(R.id.btn_solicitar_turno);
         Button btnVolverHome = findViewById(R.id.btn_volver_home);
 
         btnVolverHome.setOnClickListener(view -> {
             Intent intent = new Intent(NuevoTurno.this, MainActivity.class);
-            vibrarBoton.vibrate();
             startActivity(intent); // lanzo actividad home ->main
 
             // desplazamiento lateral
@@ -92,7 +89,6 @@ public class NuevoTurno extends AppCompatActivity {
 
 
         btnNuevoTurno.setOnClickListener(view -> {
-            vibrarBoton.vibrate();
             String especialidad = spinnerEspecialidad.getSelectedItem().toString();
             String fecha = fechaSeleccionada;
             String hora = spinnerHorario.getSelectedItem().toString();
@@ -117,7 +113,6 @@ public class NuevoTurno extends AppCompatActivity {
             listaDeTurnos.agregarTurno(turno);
 
             Intent intent = new Intent(NuevoTurno.this, ConfirmacionTurno.class);
-            vibrarBoton.vibrate();
             startActivity(intent); // lanzo actividad home ->main
 
             // desplazamiento lateral
