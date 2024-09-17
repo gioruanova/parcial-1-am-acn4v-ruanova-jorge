@@ -77,6 +77,8 @@
                     android:id="@+id/spinnerEspecialidad"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginBottom="@dimen/margenes_inputs"
                     android:background="@drawable/fondo_contendores"
                     android:textAlignment="center" />
@@ -95,6 +97,8 @@
                     android:id="@+id/seleccionFecha"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginBottom="@dimen/margenes_inputs"
                     android:autofillHints="@string/turno_fecha"
                     android:background="@drawable/fondo_contendores"
@@ -121,6 +125,8 @@
                     android:id="@+id/spinnerHorario"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginBottom="@dimen/margenes_inputs"
                     android:background="@drawable/fondo_contendores"
                     android:textAlignment="center" />
