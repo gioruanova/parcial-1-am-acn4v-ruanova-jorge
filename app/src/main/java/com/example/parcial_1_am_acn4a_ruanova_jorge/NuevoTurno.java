@@ -19,14 +19,15 @@ import androidx.core.view.WindowInsetsCompat;
 
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class NuevoTurno extends AppCompatActivity {
 
     private EditText selectorFecha;
 
     private Spinner spinnerEspecialidad;
-    private String fechaSeleccionada;
-    private Spinner spinnerHorario;
+    private Date fechaSeleccionada;
+        private Spinner spinnerHorario;
 
 
     @Override
@@ -74,8 +75,16 @@ public class NuevoTurno extends AppCompatActivity {
             int dia = calendar.get(Calendar.DAY_OF_MONTH);
 
             DatePickerDialog datePickerDialog = new DatePickerDialog(NuevoTurno.this, (view, yearSelected, monthSelected, dayOfMonthSelected) -> {
-                fechaSeleccionada = dayOfMonthSelected + "-" + (monthSelected + 1) + "-" + yearSelected;
-                selectorFecha.setText(fechaSeleccionada);
+                // Guarda la fecha seleccionada en un objeto Calendar
+                Calendar selectedDate = Calendar.getInstance();
+                selectedDate.set(yearSelected, monthSelected, dayOfMonthSelected);
+
+                // Convierte el objeto Calendar en un objeto Date
+                fechaSeleccionada = selectedDate.getTime();
+
+                // Formatea la fecha como una cadena para mostrar en el TextView
+                String formattedDate = dayOfMonthSelected + "-" + (monthSelected + 1) + "-" + yearSelected;
+                selectorFecha.setText(formattedDate);
             }, anio, mes, dia);
 
             datePickerDialog.show();
@@ -90,16 +99,18 @@ public class NuevoTurno extends AppCompatActivity {
 
         btnNuevoTurno.setOnClickListener(view -> {
             String especialidad = spinnerEspecialidad.getSelectedItem().toString();
-            String fecha = fechaSeleccionada;
-            String hora = spinnerHorario.getSelectedItem().toString();
+                        String hora = spinnerHorario.getSelectedItem().toString();
 
 
             // Condicion para completar los campos
             if (especialidad.isEmpty()) {
                 Toast.makeText(NuevoTurno.this, "Debe seleccionar una especialidad", Toast.LENGTH_LONG).show();
                 return;
-            } else if (fecha == null) {
+            } else if (fechaSeleccionada == null) {
                 Toast.makeText(NuevoTurno.this, "Debe seleccionar una fecha", Toast.LENGTH_LONG).show();
+                return;
+            } else if (fechaSeleccionada.before(Calendar.getInstance().getTime())) {
+                Toast.makeText(NuevoTurno.this, "La fecha seleccionada no puede ser anterior a la fecha actual", Toast.LENGTH_LONG).show();
                 return;
             } else if (hora.isEmpty()) {
                 Toast.makeText(NuevoTurno.this, "Debe seleccionar una hora", Toast.LENGTH_LONG).show();
@@ -107,8 +118,7 @@ public class NuevoTurno extends AppCompatActivity {
             }
 
 
-
-            TurnoMedico turno = new TurnoMedico(nombreUsuario, especialidad, fecha, hora);
+            TurnoMedico turno = new TurnoMedico(nombreUsuario, especialidad, fechaSeleccionada, hora);
             RegistroTurnos listaDeTurnos = RegistroTurnos.obtenerInstancia();
             listaDeTurnos.agregarTurno(turno);
 

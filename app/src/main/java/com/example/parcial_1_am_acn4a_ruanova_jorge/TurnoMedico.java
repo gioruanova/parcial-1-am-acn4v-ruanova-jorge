@@ -1,6 +1,10 @@
 package com.example.parcial_1_am_acn4a_ruanova_jorge;
 
+import android.annotation.SuppressLint;
+
 import java.security.SecureRandom;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 
@@ -9,19 +13,19 @@ public class TurnoMedico {
     private static final SecureRandom random = new SecureRandom();
 
     private String especialidad;
-    private String fechaTurno;
+    private Date fechaTurno;
     private String horaTurno;
     private String usuario;
     private String id;
 
 
-
     public TurnoMedico() {
+
     }
 
-    public TurnoMedico(String usuario, String especialidad, String fechaTurno, String horaTurno) {
+    public TurnoMedico(String usuario, String especialidad, Date fechaSeleccionada, String horaTurno) {
         this.especialidad = especialidad;
-        this.fechaTurno = fechaTurno;
+        this.fechaTurno = fechaSeleccionada;
         this.horaTurno = horaTurno;
         this.id = generarNumeroDeIDAleatorio(10000);
         this.usuario = usuario;
@@ -37,10 +41,10 @@ public class TurnoMedico {
     }
 
     public String getFechaTurno() {
-        return fechaTurno;
-    }
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return sdf.format(fechaTurno);    }
 
-    public void setFechaTurno(String fechaTurno) {
+    public void setFechaTurno(Date fechaTurno) {
         this.fechaTurno = fechaTurno;
     }
 
