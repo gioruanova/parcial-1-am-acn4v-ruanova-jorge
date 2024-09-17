@@ -9,139 +9,150 @@
     tools:context=".MainActivity">
 
     <!-- header -->
-    <include
-        android:id="@+id/header"
-        layout="@layout/header" />
 
-    <LinearLayout
-        android:id="@+id/body_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="10dp"
-        app:layout_constraintBottom_toTopOf="@id/footer"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header">
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_base">
 
-
-        <TableRow
+        <LinearLayout
+            android:id="@+id/body_content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="10dp"
-            android:gravity="center">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/fondo_contendores"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cornerRadius="80dp">
 
-            <TextView
-                android:id="@+id/titulo_home"
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/titulo_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titulo_home"
+                    android:textAlignment="center"
+                    android:textColor="@color/colores_textos_dark"
+                    android:textSize="@dimen/texto_titulo" />
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/titulo_home"
-                android:textAlignment="center"
-                android:textColor="@color/mainColorLightText"
-                android:textSize="@dimen/texto_titulo" />
-        </TableRow>
+                android:gravity="center">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
+                <Button
+                    android:id="@+id/btn_nuevo_turno"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/button_color_selection"
+                    android:text="@string/btn_nuevo_turno"
+                    android:textAllCaps="true"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="@dimen/texto_botones"
+                    android:textStyle="bold"
+                    app:cornerRadius="@dimen/botones_borde"
+                    tools:ignore="ButtonStyle" />
 
-            <Button
-                android:id="@+id/btn_nuevo_turno"
-                android:layout_width="0dp"
-                android:layout_height="90dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/button_color_selection"
-                android:text="@string/btn_nuevo_turno"
-                android:textAllCaps="true"
-                android:textColor="@color/button_text_color"
-                android:textSize="@dimen/texto_botones"
-                app:cornerRadius="@dimen/botones_borde"
-                android:textStyle="bold"
-                tools:ignore="ButtonStyle" />
+                <Button
+                    android:id="@+id/btn_mis_turnos"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/button_color_selection"
+                    android:text="@string/btn_mis_turnos"
+                    android:textAllCaps="true"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="@dimen/texto_botones"
+                    android:textStyle="bold"
+                    app:cornerRadius="@dimen/botones_borde"
+                    tools:ignore="ButtonStyle" />
+            </TableRow>
 
-            <Button
-                android:id="@+id/btn_mis_turnos"
-                android:layout_width="0dp"
-                android:layout_height="90dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/button_color_selection"
-                android:text="@string/btn_mis_turnos"
-                android:textAllCaps="true"
-                android:textColor="@color/button_text_color"
-                android:textSize="@dimen/texto_botones"
-                app:cornerRadius="@dimen/botones_borde"
-                android:textStyle="bold"
-                tools:ignore="ButtonStyle" />
-        </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
+                <Button
+                    android:id="@+id/btn_mensajes"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/button_color_selection"
+                    android:text="@string/btn_mensajes"
+                    android:textAllCaps="true"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="@dimen/texto_botones"
+                    android:textStyle="bold"
+                    app:cornerRadius="@dimen/botones_borde"
+                    tools:ignore="ButtonStyle" />
 
-            <Button
-                android:id="@+id/btn_mensajes"
-                android:layout_width="0dp"
-                android:layout_height="90dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/button_color_selection"
-                android:text="@string/btn_mensajes"
-                android:textAllCaps="true"
-                android:textColor="@color/button_text_color"
-                android:textSize="@dimen/texto_botones"
-                app:cornerRadius="@dimen/botones_borde"
-                android:textStyle="bold"
-                tools:ignore="ButtonStyle" />
+                <Button
+                    android:id="@+id/btn_mis_datos"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/button_color_selection"
+                    android:text="@string/btn_mis_datos"
+                    android:textAllCaps="true"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="@dimen/texto_botones"
+                    android:textStyle="bold"
+                    app:cornerRadius="@dimen/botones_borde"
+                    tools:ignore="ButtonStyle" />
+            </TableRow>
 
-            <Button
-                android:id="@+id/btn_mis_datos"
-                android:layout_width="0dp"
-                android:layout_height="90dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/button_color_selection"
-                android:text="@string/btn_mis_datos"
-                android:textAllCaps="true"
-                android:textColor="@color/button_text_color"
-                android:textSize="@dimen/texto_botones"
-                app:cornerRadius="@dimen/botones_borde"
-                android:textStyle="bold"
-                tools:ignore="ButtonStyle" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/btn_salir"
+            <TableRow
                 android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:layout_weight="0.5"
-                android:backgroundTint="@color/button_color_selection_disrruptive"
-                android:minWidth="200dip"
-                android:text="@string/btn_salir"
-                android:textAllCaps="true"
-                android:textColor="@color/button_text_color"
-                android:textSize="@dimen/texto_botones"
-                android:textStyle="bold"
-                app:cornerRadius="@dimen/botones_borde" />
-        </TableRow>
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btn_salir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.5"
+                    android:backgroundTint="@color/button_color_selection_disrruptive"
+                    android:minWidth="200dip"
+                    android:text="@string/btn_salir"
+                    android:textAllCaps="true"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="@dimen/texto_botones"
+                    android:textStyle="bold"
+                    app:cornerRadius="@dimen/botones_borde" />
+            </TableRow>
 
 
-    </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--footer-->
     <include
         android:id="@+id/footer"
         layout="@layout/footer" />
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

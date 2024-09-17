@@ -3,15 +3,26 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="colorPrincipal">#45B1D1</color>
-    <color name="colorSecundarioClaro">#3577BC</color>
+    <color name="colorPrincipal">#4c98ed</color>
+    <color name="colorSecundarioClaro">#7ab3f2</color>
     <color name="colorSecundarioOscuro">#222C5C</color>
 
     <color name="colorDeshabilitado">#959595</color>
 
     <color name="colorDisrruptivo">#FF9800</color>
-    <color name="colorDisrruptivoSoft">#D1A668</color>
+    <color name="colorDisrruptivoSoft">#ffad33</color>
 
     <color name="mainColorLightText">#FFFFFFFF</color>
     <color name="mainColorLightTextHover">#27316C</color>
+
+
+
+
+
+
+    <color name="fondo_contenedores">#CBFFFFFF</color>
+
+    <color name="colores_titulos">#3577BC</color>
+    <color name="colores_textos_dark">#222C5C</color>
+
 </resources>

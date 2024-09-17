@@ -5,7 +5,7 @@
     android:id="@+id/footer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrincipal"
+    android:background="@color/fondo_contenedores"
     android:orientation="vertical"
     android:padding="8dp"
     app:layout_constraintBottom_toBottomOf="parent"
@@ -18,8 +18,8 @@
         android:layout_height="wrap_content"
         android:text="@string/copyright_uno"
         android:textAlignment="center"
-        android:textColor="@color/mainColorLightText"
-        android:textSize="17sp" />
+        android:textColor="@color/colores_textos_dark"
+        android:textSize="@dimen/texto_secundario" />
 
     <TextView
         android:id="@+id/copyright_segunda_linea"
@@ -27,6 +27,6 @@
         android:layout_height="wrap_content"
         android:text="@string/copyright_dos"
         android:textAlignment="center"
-        android:textColor="@color/mainColorLightText"
-        android:textSize="17sp" />
+        android:textColor="@color/colores_textos_dark"
+        android:textSize="@dimen/texto_secundario" />
 </LinearLayout>

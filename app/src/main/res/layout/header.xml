@@ -4,8 +4,8 @@
     android:id="@+id/header"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="16dp"
-    android:background="@color/colorPrincipal"
+
+    android:background="@color/fondo_contenedores"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:padding="15dp"
@@ -25,7 +25,7 @@
         android:layout_height="50dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/logo_descripcion"
-        android:src="@drawable/avatar_default" />
+        android:src="@drawable/logo" />
 
     <LinearLayout
         android:id="@+id/container_usuario"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:text="@string/mensaje_bienvenida"
             android:textAlignment="viewEnd"
-            android:textColor="@color/mainColorLightText"
+            android:textColor="@color/colores_textos_dark"
             android:textSize="@dimen/texto_secundario" />
 
         <TextView
@@ -50,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/usuario_logueado"
-            android:textColor="@color/mainColorLightText"
+            android:textColor="@color/colores_textos_dark"
             android:textSize="@dimen/texto_principal"
             android:textStyle="bold" />
 
