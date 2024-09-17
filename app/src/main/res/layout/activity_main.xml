@@ -31,12 +31,14 @@
             android:id="@+id/body_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/fondo_contendores"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="20dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             android:paddingBottom="10dp">
 
 
@@ -55,9 +57,12 @@
                     android:textSize="@dimen/texto_titulo" />
             </LinearLayout>
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
                 android:orientation="horizontal">
 
                 <Button
@@ -90,8 +95,6 @@
                     app:cornerRadius="@dimen/botones_borde"
                     tools:ignore="ButtonStyle,VisualLintButtonSize" />
             </LinearLayout>
-
-
 
             <LinearLayout
                 android:layout_width="match_parent"
