@@ -21,6 +21,12 @@
             android:name=".NuevoTurno"
             android:exported="false" />
         <activity
+            android:name=".VistaPaciente"
+            android:exported="false" />
+        <activity
+            android:name=".VistaDoctor"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

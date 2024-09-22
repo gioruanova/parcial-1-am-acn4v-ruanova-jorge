@@ -2,8 +2,9 @@ package com.example.parcial_1_am_acn4a_ruanova_jorge;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import androidx.core.app.ActivityOptionsCompat;
 
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "ListadoUsuariosLog";
 
 
     @Override
@@ -18,36 +20,71 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        UsuarioLogueado.getInstance().setNombreUsuario("Jorge Ruanova");
-        UsuarioLogueado.getInstance().setDniUsuario("32952245");
-        TextView usuarioLogueadoTextView = findViewById(R.id.usuario_logueado);
-        usuarioLogueadoTextView.setText(UsuarioLogueado.getInstance().getNombreUsuario());
+        ListadoUsuarios listado = new ListadoUsuarios();
+
+        EditText inputDni = findViewById(R.id.input_dni);
+        EditText inputPassword = findViewById(R.id.input_password);
 
 
-        Button btnNuevoTurno = findViewById(R.id.btn_nuevo_turno);
-        btnNuevoTurno.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, NuevoTurno.class);
-            ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(
-                    MainActivity.this,
-                    R.anim.slide_in_right,
-                    R.anim.slide_out_left
-            );
-            startActivity(intent, options.toBundle());
+
+
+        Button btnLogin = findViewById(R.id.btn_login);
+        btnLogin.setOnClickListener(view -> {
+            String userDni = inputDni.getText().toString().trim();
+            String userPass = inputPassword.getText().toString().trim();
+
+            if (userDni.isEmpty() || userPass.isEmpty()) {
+                Toast.makeText(MainActivity.this,
+                        "Debe completar usuario y contraseña para ingresar", Toast.LENGTH_LONG).show();
+            } else {
+                Usuario resultadoLogin = listado.validarUsuario(userDni, userPass);
+
+                if (resultadoLogin == null) {
+                    Log.d(TAG, "Los datos ingresados no son válidos");
+                    Toast.makeText(MainActivity.this,
+                            "Los datos ingresados son inválidos", Toast.LENGTH_LONG).show();
+                } else {
+                    Log.d(TAG, resultadoLogin.getNombreUsuario() + " - " + resultadoLogin.getContrasenia()+resultadoLogin.isDoctor());
+                    Toast.makeText(MainActivity.this,
+                            "DNI: " + userDni + "\nPassword: " + userPass + resultadoLogin.isDoctor(), Toast.LENGTH_LONG).show();
+                    manejarVista(resultadoLogin.isDoctor());
+                }
+            }
         });
 
-        Button btnMisTurnos = findViewById(R.id.btn_mis_turnos);
-
-        btnMisTurnos.setOnClickListener(View -> Toast.makeText(MainActivity.this, "Proximamente", Toast.LENGTH_LONG).show());
-
-        Button btnMensajes = findViewById(R.id.btn_mensajes);
-        btnMensajes.setOnClickListener(View -> Toast.makeText(MainActivity.this, "Proximamente", Toast.LENGTH_LONG).show());
-
-        Button btnMisDatos = findViewById(R.id.btn_mis_datos);
-        btnMisDatos.setOnClickListener(View -> Toast.makeText(MainActivity.this, "Proximamente", Toast.LENGTH_LONG).show());
-
-        Button btnSalir = findViewById(R.id.btn_salir);
-        btnSalir.setOnClickListener(View -> Toast.makeText(MainActivity.this, "Proximamente", Toast.LENGTH_LONG).show());
+        Button btnRecuperar = findViewById(R.id.btn_reset);
+        btnRecuperar.setOnClickListener(View -> Toast.makeText(MainActivity.this, "Recuperando", Toast.LENGTH_LONG).show());
+    }
 
 
+    private void manejarVista(boolean esDoctor) {
+        if (esDoctor) {
+            lanzarVistaMedico();
+        } else {
+            lanzarVistaPaciente();
+        }
+    }
+
+    private void lanzarVistaPaciente() {
+        Intent intentVistaPaciente = new Intent(MainActivity.this, VistaPaciente.class);
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(
+                MainActivity.this,
+                R.anim.slide_in_right,
+                R.anim.slide_out_left
+        );
+        startActivity(intentVistaPaciente, options.toBundle());
+        Log.d(TAG, "Es paciente");
+    }
+
+    private void lanzarVistaMedico() {
+       Intent intentVistaDoctor = new Intent(MainActivity.this, VistaDoctor.class);
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(
+                MainActivity.this,
+                R.anim.slide_in_right,
+                R.anim.slide_out_left
+        );
+        startActivity(intentVistaDoctor, options.toBundle());
+
+        Log.d(TAG, "Es doctor");
     }
 }

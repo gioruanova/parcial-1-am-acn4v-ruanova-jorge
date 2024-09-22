@@ -6,9 +6,24 @@
     <string name="mensaje_bienvenida">"Bienvenido: "</string>
     <string name="usuario_logueado">"Usuario logueado"</string>
 
+    <string name="login_input_uno">"Ingrese su numero de dni"</string>
+    <string name="login_input_dos">"Ingrese su contraseña"</string>
+    <string name="btn_login">"Ingresar"</string>
+    <string name="btn_recuperar">"Recuperar Acceso"</string>
+
+    <!--Vista medico-->
+    <string name="titulo_vista_medico">"Panel Vista Medica"</string>
+
+
+
+
+
     <!--body home-->
     <string name="titulo_home">"Bienvenido a Central de Turnos"</string>
 
+
+<!--Vista paciente-->
+    <string name="titulo_vista_paciente">"Panel Vista Paciente"</string>
     <string name="btn_nuevo_turno">"Nuevo Turno"</string>
     <string name="btn_mis_turnos">"Mis Turnos"</string>
     <string name="btn_mis_datos">"Mis Datos"</string>

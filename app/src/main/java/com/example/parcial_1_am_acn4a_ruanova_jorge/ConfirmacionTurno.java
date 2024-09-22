@@ -43,7 +43,7 @@ public class ConfirmacionTurno extends AppCompatActivity {
         Button volverHome = findViewById(R.id.btn_volver_home);
 
         volverHome.setOnClickListener(view -> {
-            Intent intent = new Intent(ConfirmacionTurno.this, MainActivity.class);
+            Intent intent = new Intent(ConfirmacionTurno.this, VistaPaciente.class);
             startActivity(intent); // lanzo actividad home ->main
 
             // desplazamiento lateral

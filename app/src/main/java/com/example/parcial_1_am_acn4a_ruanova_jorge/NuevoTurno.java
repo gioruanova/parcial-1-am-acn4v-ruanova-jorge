@@ -42,12 +42,12 @@ public class NuevoTurno extends AppCompatActivity {
         Button btnVolverHome = findViewById(R.id.btn_volver_home);
 
         btnVolverHome.setOnClickListener(view -> {
-            Intent intent = new Intent(NuevoTurno.this, MainActivity.class);
-            startActivity(intent); // lanzo actividad home ->main
+            Intent intentVistaPaciente = new Intent(NuevoTurno.this, VistaPaciente.class);
+            startActivity(intentVistaPaciente); // lanzo actividad home ->main
 
             // desplazamiento lateral
             ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(NuevoTurno.this, R.anim.slide_in_left, R.anim.slide_out_right);
-            startActivity(intent, options.toBundle());
+            startActivity(intentVistaPaciente, options.toBundle());
         });
 
 
@@ -114,13 +114,13 @@ public class NuevoTurno extends AppCompatActivity {
             RegistroTurnos listaDeTurnos = RegistroTurnos.obtenerInstancia();
             listaDeTurnos.agregarTurno(turno);
 
-            Intent intent = new Intent(NuevoTurno.this, ConfirmacionTurno.class);
-            startActivity(intent); // lanzo actividad home ->main
+            Intent intentConfirmacion = new Intent(NuevoTurno.this, ConfirmacionTurno.class);
+            startActivity(intentConfirmacion); // lanzo actividad home ->main
 
             // desplazamiento lateral
             ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(NuevoTurno.this, R.anim.slide_in_right,
                     R.anim.slide_out_left);
-            startActivity(intent, options.toBundle());
+            startActivity(intentConfirmacion, options.toBundle());
 
 
         });

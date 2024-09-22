@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vistaPaciente"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_base"
+    tools:context=".VistaPaciente">
+
+    <!-- header -->
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header" />
+
+    <ScrollView
+        android:id="@+id/scroll_vista_paciente"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@id/footer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header">
+
+        <LinearLayout
+            android:id="@+id/body_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/fondo_contendores"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="10dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/titulo_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:text="@string/titulo_vista_paciente"
+                    android:textAlignment="center"
+                    android:textColor="@color/colores_textos_dark"
+                    android:textSize="@dimen/texto_titulo" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_nuevo_turno"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/button_color_selection"
+                    android:text="@string/btn_nuevo_turno"
+                    android:textAllCaps="true"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="@dimen/texto_botones"
+                    android:textStyle="bold"
+                    app:cornerRadius="@dimen/botones_borde"
+                    tools:ignore="ButtonStyle,VisualLintButtonSize" />
+
+                <Button
+                    android:id="@+id/btn_mis_turnos"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/button_color_selection"
+                    android:text="@string/btn_mis_turnos"
+                    android:textAllCaps="true"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="@dimen/texto_botones"
+                    android:textStyle="bold"
+                    app:cornerRadius="@dimen/botones_borde"
+                    tools:ignore="ButtonStyle,VisualLintButtonSize" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_mensajes"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/button_color_selection"
+                    android:text="@string/btn_mensajes"
+                    android:textAllCaps="true"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="@dimen/texto_botones"
+                    android:textStyle="bold"
+                    app:cornerRadius="@dimen/botones_borde"
+                    tools:ignore="ButtonStyle,VisualLintButtonSize" />
+
+                <Button
+                    android:id="@+id/btn_mis_datos"
+                    android:layout_width="0dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/button_color_selection"
+                    android:text="@string/btn_mis_datos"
+                    android:textAllCaps="true"
+                    android:textColor="@color/button_text_color"
+                    android:textSize="@dimen/texto_botones"
+                    android:textStyle="bold"
+                    app:cornerRadius="@dimen/botones_borde"
+                    tools:ignore="ButtonStyle,VisualLintButtonSize" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_salir"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.5"
+                    android:backgroundTint="@color/button_color_selection_disrruptive"
+                    android:minWidth="200dp"
+                    android:text="@string/btn_salir"
+                    android:textAllCaps="true"
+                    android:textColor="@color/textDisrruptive"
+                    android:textSize="@dimen/texto_botones"
+                    android:textStyle="bold"
+                    app:cornerRadius="@dimen/botones_borde"
+                    tools:ignore="VisualLintButtonSize" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer" />
+
+    <!--footer-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
