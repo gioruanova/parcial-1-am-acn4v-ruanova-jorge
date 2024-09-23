@@ -59,7 +59,8 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/login_input_uno"
                     android:inputType="number"
-                    android:textColorHint="#757575"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"
                     tools:ignore="VisualLintTextFieldSize,DuplicateSpeakableTextCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,6 +83,8 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/login_input_dos"
                     android:inputType="textPassword"
+                    android:textColorHint="@color/black"
+                    android:textColor="@color/black"
                     tools:ignore="VisualLintTextFieldSize" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>

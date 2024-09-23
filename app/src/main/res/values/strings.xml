@@ -74,12 +74,12 @@
     <string name="tituloEspecialidad">"Seleccione una especialidad"</string>
     <string-array name="listado_especialidades">
         <item />
-        <item>Guardia (fila virtual)</item>
+        <item>Guardia Clinica</item>
+        <item>Medico Clinico</item>
         <item>Kinesiologia General</item>
         <item>Dentista</item>
         <item>Cardiologia</item>
         <item>Nutricionista</item>
-        <item>Pediatria</item>
     </string-array>
 
 

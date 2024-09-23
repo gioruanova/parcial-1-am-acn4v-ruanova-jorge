@@ -1,6 +1,7 @@
 package com.example.parcial_1_am_acn4a_ruanova_jorge;
 
 import android.annotation.SuppressLint;
+import android.icu.util.Calendar;
 
 import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
@@ -43,9 +44,21 @@ public class TurnoMedico {
     }
 
 
-    public String getFechaTurno() {
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        return sdf.format(fechaTurno);    }
+    public Date getFechaTurno() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fechaTurno);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        return calendar.getTime();
+    }
+
+
+    public String getFechaFormateada() {
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd yyyy"); // Formato deseado
+        return sdf.format(getFechaTurno()); // Convierte la fecha limpia en un String
+    }
 
     public String getHoraTurno() {
         return horaTurno;

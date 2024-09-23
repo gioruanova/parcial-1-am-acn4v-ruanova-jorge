@@ -19,6 +19,8 @@ public class ConfirmacionTurno extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmacion_turno);
 
+
+        // recupero el usuario logueado
         Usuario usuarioLogueado = (Usuario) getIntent().getSerializableExtra("usuario");
         TextView usuarioLogueadoTextView = findViewById(R.id.usuario_logueado);
         assert usuarioLogueado != null;

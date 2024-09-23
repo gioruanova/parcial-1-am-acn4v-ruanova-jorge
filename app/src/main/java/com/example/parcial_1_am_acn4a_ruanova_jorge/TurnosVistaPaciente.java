@@ -2,7 +2,6 @@ package com.example.parcial_1_am_acn4a_ruanova_jorge;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,6 @@ import java.util.ArrayList;
 
 public class TurnosVistaPaciente extends AppCompatActivity {
 
-    private static final String TAG = "listaturnos";
 
 
     @Override
@@ -48,9 +46,7 @@ public class TurnosVistaPaciente extends AppCompatActivity {
 
             for (TurnoMedico turno : turnos) {
                 if(turno.getUsuario().getDniUsuario().equals(usuarioLogueado.getDniUsuario())) {
-                    Log.d(TAG, "Turno: " + turno.getFechaTurno() + " - " + turno.getHoraTurno() + " - " + turno.getEspecialidad() + " - " + turno.getEstado().getDescripcion());
                     turnosList.add(turno);
-
                     ArrayAdapter<TurnoMedico> myAdapter = new ArrayAdapter<TurnoMedico>(this, R.layout.item_turno_paciente, turnosList) {
                         @NonNull
                         @Override
@@ -62,7 +58,7 @@ public class TurnosVistaPaciente extends AppCompatActivity {
 
                             TextView textView = convertView.findViewById(R.id.item_turno_paciente);
                             if (turno != null) {
-                                String texto = "Turno: " + turno.getFechaTurno() + " - " + turno.getHoraTurno() + " - " + turno.getEspecialidad() + " - " + turno.getEstado().getDescripcion();
+                                String texto = "Turno: " + turno.getFechaFormateada() + " - " + turno.getHoraTurno() + " - " + turno.getEspecialidad() + " - " + turno.getEstado().getDescripcion();
                                 textView.setText(texto);
                             }
 
@@ -71,8 +67,6 @@ public class TurnosVistaPaciente extends AppCompatActivity {
                     };
                     miListaTurnos.setAdapter(myAdapter);
                     parent.removeView(textoError);
-                } else {
-                    Log.d(TAG, "No hay turnos para el usuario");
                 }
             }
 
@@ -82,7 +76,6 @@ public class TurnosVistaPaciente extends AppCompatActivity {
             TurnoMedico turnoSeleccionado = turnosList.get(position);
             String turnoId = turnoSeleccionado.getId();
 
-            Log.d(TAG, turnoId);
             Toast.makeText(TurnosVistaPaciente.this, "El turno a mostrar en la siguiente vista es: " + turnoId, Toast.LENGTH_LONG).show();
 
         });

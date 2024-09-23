@@ -3,6 +3,7 @@ package com.example.parcial_1_am_acn4a_ruanova_jorge;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,16 +15,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
 
 
-
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 public class NuevoTurno extends AppCompatActivity {
 
-    private EditText selectorFecha;
-    private Spinner spinnerEspecialidad;
-    private Date fechaSeleccionada;
-    private Spinner spinnerHorario;
+    private static final String TAG = "listaturnos";
+
+
+     EditText selectorFecha;
+     Spinner spinnerEspecialidad;
+     Date fechaSeleccionada;
+     Spinner spinnerHorario;
 
 
     @Override
@@ -38,14 +43,35 @@ public class NuevoTurno extends AppCompatActivity {
         usuarioLogueadoTextView.setText(usuarioLogueado.getNombreUsuario());
 
 
+        ListadoTurnos listaDeTurnos = ListadoTurnos.obtenerInstancia();
+        ArrayList<TurnoMedico> turnos = listaDeTurnos.obtenerTurnos();
+
+
+
+        for (TurnoMedico turno : turnos) {
+            Log.d(TAG, "Turno: " + turno.getFechaTurno() + " - " + turno.getHoraTurno() + " - " + turno.getEspecialidad());
+        }
+
+
+
 
         // Gestion de turno y obtencion de datos
-
         // Seleccion de especialidad
+
         spinnerEspecialidad = findViewById(R.id.spinnerEspecialidad);
+
         ArrayAdapter<CharSequence> adapterEspecialidad = ArrayAdapter.createFromResource(this, R.array.listado_especialidades, android.R.layout.simple_spinner_item);
         adapterEspecialidad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerEspecialidad.setAdapter(adapterEspecialidad);
+
+        ArrayAdapter adapterSpinner = ArrayAdapter.createFromResource(
+                this,
+                R.array.listado_especialidades,
+                R.layout.spinner_color_layout
+        );
+        adapterSpinner.setDropDownViewResource(R.layout.spinner_drop_down);
+        spinnerEspecialidad.setAdapter(adapterSpinner);
+
 
 
         // Seleccion de fecha de turno
@@ -69,9 +95,22 @@ public class NuevoTurno extends AppCompatActivity {
 
         // Seleccion de hora de turno
         spinnerHorario = findViewById(R.id.spinnerHorario);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.horarios_atencion, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerHorario.setAdapter(adapter);
+
+        ArrayAdapter<CharSequence> adapterHorario = ArrayAdapter.createFromResource(this, R.array.horarios_atencion, android.R.layout.simple_spinner_item);
+        adapterHorario.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerHorario.setAdapter(adapterHorario);
+
+
+
+        ArrayAdapter adapterSpinnerHorario = ArrayAdapter.createFromResource(
+                this,
+                R.array.horarios_atencion,
+                R.layout.spinner_color_layout
+        );
+        adapterSpinnerHorario.setDropDownViewResource(R.layout.spinner_drop_down);
+        spinnerHorario.setAdapter(adapterSpinnerHorario);
+
+
 
         // Fin gestion de turno y obtencion de datos
 
@@ -80,6 +119,9 @@ public class NuevoTurno extends AppCompatActivity {
         btnSolicitarTurno.setOnClickListener(view -> {
             String especialidad = spinnerEspecialidad.getSelectedItem().toString();
             String hora = spinnerHorario.getSelectedItem().toString();
+
+
+
 
 
             // Condicion para completar los campos
@@ -97,9 +139,19 @@ public class NuevoTurno extends AppCompatActivity {
                 return;
             }
 
+            for (TurnoMedico turno : turnos) {
+                if (especialidad.equals(turno.getEspecialidad()) && hora.equals(turno.getHoraTurno()) && normalizeDate(turno.getFechaTurno()).equals(normalizeDate(fechaSeleccionada))) {
+                    Toast.makeText(NuevoTurno.this, "Turno ya ocupado", Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }
+
+
+
+
 
             TurnoMedico nuevoTurno = new TurnoMedico(usuarioLogueado, especialidad, fechaSeleccionada, hora);
-            ListadoTurnos listaDeTurnos = ListadoTurnos.obtenerInstancia();
+//            ListadoTurnos listaDeTurnos = ListadoTurnos.obtenerInstancia();
             listaDeTurnos.agregarTurno(nuevoTurno);
 
             Intent intentConfirmacion = new Intent(NuevoTurno.this, ConfirmacionTurno.class);
@@ -126,5 +178,15 @@ public class NuevoTurno extends AppCompatActivity {
             );
             startActivity(volverAVistaPrincipal, options.toBundle());});
 
+    }
+
+    public static Date normalizeDate(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        return calendar.getTime();
     }
 }
