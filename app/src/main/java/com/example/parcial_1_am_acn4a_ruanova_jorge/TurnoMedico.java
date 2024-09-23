@@ -12,11 +12,11 @@ public class TurnoMedico {
 
     private static final SecureRandom random = new SecureRandom();
 
-    private String especialidad;
-    private Date fechaTurno;
-    private String horaTurno;
-    private Usuario usuario;
-    private String id;
+    private final String especialidad;
+    private final Date fechaTurno;
+    private final String horaTurno;
+    private final Usuario usuario;
+    private final String id;
     private boolean estado;
 
 
