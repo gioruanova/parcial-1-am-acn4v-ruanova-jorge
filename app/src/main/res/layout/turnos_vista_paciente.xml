@@ -18,11 +18,11 @@
     <LinearLayout
         android:id="@+id/body_content"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/fondo_contendores"
         android:gravity="center"
         android:orientation="vertical"
@@ -30,63 +30,66 @@
         app:layout_constraintBottom_toTopOf="@id/footer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/colores_textos_dark"
         app:layout_constraintTop_toBottomOf="@id/header">
 
-        <LinearLayout
+        <!-- Título -->
+        <TextView
+            android:id="@+id/titulo_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginBottom="15dp"
+            android:text="@string/titulo_turnos_paciente"
+            android:textAlignment="center"
+            android:textColor="@color/colores_textos_dark"
+            android:textSize="@dimen/texto_titulo" />
+
+        <FrameLayout
+            android:id="@+id/contenedor_turnos"
+            android:layout_width="match_parent"
+            android:textColor="@color/colores_textos_dark"
+            android:layout_height="wrap_content">
+
+            <ListView
+                android:id="@+id/listado_turnos_lista"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="#000000"
+                android:divider="@android:drawable/bottom_bar"
+                android:dividerHeight="1dp"
+                android:textColor="@color/colores_textos_dark"
+                tools:ignore="InvalidId" />
 
             <TextView
-                android:id="@+id/titulo_home"
+                android:id="@+id/texto_error"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:text="@string/titulo_turnos_paciente"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="No hay turnos generados"
                 android:textAlignment="center"
-                android:textColor="@color/colores_textos_dark"
-                android:textSize="@dimen/texto_titulo" />
-        </LinearLayout>
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </FrameLayout>
 
-        <!-- Lista de turnos -->
-
-        <ScrollView
-            android:id="@+id/lista_turnos"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:minHeight="100dp"
-            tools:ignore="SpeakableTextPresentCheck">
-
-            <LinearLayout
-                android:id="@+id/lista_turnos_inner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </ScrollView>
-
-        <LinearLayout
+        <!-- Botón para volver a inicio -->
+        <Button
+            android:id="@+id/btn_volver_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/btn_volver_home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:backgroundTint="@color/button_color_selection_disrruptive"
-                android:minWidth="200dp"
-                android:text="@string/btn_volver"
-                android:textAllCaps="true"
-                android:textColor="@color/textDisrruptive"
-                android:textSize="@dimen/texto_botones"
-                android:textStyle="bold"
-                app:cornerRadius="@dimen/botones_borde"
-                tools:ignore="VisualLintButtonSize" />
-        </LinearLayout>
-
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/button_color_selection_disrruptive"
+            android:minWidth="200dp"
+            android:text="@string/btn_volver"
+            android:textAllCaps="true"
+            android:textColor="@color/textDisrruptive"
+            android:textSize="@dimen/texto_botones"
+            android:textStyle="bold"
+            app:cornerRadius="@dimen/botones_borde"
+            tools:ignore="VisualLintButtonSize" />
     </LinearLayout>
 
+    <!-- footer -->
     <include
         android:id="@+id/footer"
         layout="@layout/footer" />

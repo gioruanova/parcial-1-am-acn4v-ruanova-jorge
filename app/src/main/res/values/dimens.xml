@@ -7,7 +7,7 @@
     <dimen name="contenedores_radio">8dp</dimen>
 
     <!--botones-->
-    <dimen name="texto_botones">18sp</dimen>
+    <dimen name="texto_botones">16sp</dimen>
     <dimen name="botones_borde">8dp</dimen>
 
     <!--inputs-->
