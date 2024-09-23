@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class VistaDoctor extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

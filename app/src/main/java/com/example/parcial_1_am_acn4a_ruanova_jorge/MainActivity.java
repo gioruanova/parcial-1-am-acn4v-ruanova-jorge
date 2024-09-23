@@ -16,8 +16,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Instancio la clase de usuarios para tener algunos usuarios ya registrados
         ListadoUsuarios listado = new ListadoUsuarios();
 
+        // Proceso de login y validaciones
         EditText inputDni = findViewById(R.id.input_dni);
         EditText inputPassword = findViewById(R.id.input_password);
 
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    // metodo auxiliar para definir si es doctor o paciente
     private void manejarVista(boolean esDoctor, Usuario usuario) {
         if (esDoctor) {
             lanzarVistaMedico(usuario);
@@ -54,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // lanzamiento de vista paciente
     private void lanzarVistaPaciente(Usuario usuario) {
         Intent intentVistaPaciente = new Intent(MainActivity.this, VistaPaciente.class);
         intentVistaPaciente.putExtra("usuario", usuario);  // Envio el user que se loguea (pacientea)
@@ -66,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intentVistaPaciente, options.toBundle());
     }
 
+    // lanzamiento de vista doctor
     private void lanzarVistaMedico(Usuario usuario) {
        Intent intentVistaDoctor = new Intent(MainActivity.this, VistaDoctor.class);
         intentVistaDoctor.putExtra("usuario", usuario);  // Envio el user que se loguea (dr)

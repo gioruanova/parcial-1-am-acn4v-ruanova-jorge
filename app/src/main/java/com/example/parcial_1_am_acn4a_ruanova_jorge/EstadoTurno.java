@@ -8,12 +8,10 @@ public enum EstadoTurno {
     private final String descripcion;
 
 
-    // Constructor
     EstadoTurno(String descripcion) {
         this.descripcion = descripcion;
     }
 
-    // Método para obtener la descripción
     public String getDescripcion() {
         return descripcion;
     }

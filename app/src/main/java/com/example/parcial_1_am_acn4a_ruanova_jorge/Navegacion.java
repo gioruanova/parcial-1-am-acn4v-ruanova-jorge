@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import androidx.core.app.ActivityOptionsCompat;
 
+// una clase random para volver al home
 public class Navegacion {
 
     public static void desloguearUsuario(Activity currentActivity, Class<? extends Activity> targetActivity) {

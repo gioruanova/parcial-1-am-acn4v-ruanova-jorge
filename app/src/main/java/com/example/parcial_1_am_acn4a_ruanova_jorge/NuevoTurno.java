@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
 
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -46,13 +45,9 @@ public class NuevoTurno extends AppCompatActivity {
         ListadoTurnos listaDeTurnos = ListadoTurnos.obtenerInstancia();
         ArrayList<TurnoMedico> turnos = listaDeTurnos.obtenerTurnos();
 
-
-
         for (TurnoMedico turno : turnos) {
             Log.d(TAG, "Turno: " + turno.getFechaTurno() + " - " + turno.getHoraTurno() + " - " + turno.getEspecialidad());
         }
-
-
 
 
         // Gestion de turno y obtencion de datos
@@ -64,7 +59,7 @@ public class NuevoTurno extends AppCompatActivity {
         adapterEspecialidad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerEspecialidad.setAdapter(adapterEspecialidad);
 
-        ArrayAdapter adapterSpinner = ArrayAdapter.createFromResource(
+        ArrayAdapter<CharSequence> adapterSpinner = ArrayAdapter.createFromResource(
                 this,
                 R.array.listado_especialidades,
                 R.layout.spinner_color_layout
@@ -102,7 +97,7 @@ public class NuevoTurno extends AppCompatActivity {
 
 
 
-        ArrayAdapter adapterSpinnerHorario = ArrayAdapter.createFromResource(
+        ArrayAdapter<CharSequence> adapterSpinnerHorario = ArrayAdapter.createFromResource(
                 this,
                 R.array.horarios_atencion,
                 R.layout.spinner_color_layout
@@ -119,8 +114,6 @@ public class NuevoTurno extends AppCompatActivity {
         btnSolicitarTurno.setOnClickListener(view -> {
             String especialidad = spinnerEspecialidad.getSelectedItem().toString();
             String hora = spinnerHorario.getSelectedItem().toString();
-
-
 
 
 
@@ -148,10 +141,8 @@ public class NuevoTurno extends AppCompatActivity {
 
 
 
-
-
             TurnoMedico nuevoTurno = new TurnoMedico(usuarioLogueado, especialidad, fechaSeleccionada, hora);
-//            ListadoTurnos listaDeTurnos = ListadoTurnos.obtenerInstancia();
+            // ListadoTurnos listaDeTurnos = ListadoTurnos.obtenerInstancia();
             listaDeTurnos.agregarTurno(nuevoTurno);
 
             Intent intentConfirmacion = new Intent(NuevoTurno.this, ConfirmacionTurno.class);
@@ -162,8 +153,6 @@ public class NuevoTurno extends AppCompatActivity {
             ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(NuevoTurno.this, R.anim.slide_in_right,
                     R.anim.slide_out_left);
             startActivity(intentConfirmacion, options.toBundle());
-
-
         });
 
         Button btnVolverHome = findViewById(R.id.btn_volver_home);
@@ -177,7 +166,6 @@ public class NuevoTurno extends AppCompatActivity {
                     R.anim.slide_out_right
             );
             startActivity(volverAVistaPrincipal, options.toBundle());});
-
     }
 
     public static Date normalizeDate(Date date) {

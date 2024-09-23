@@ -1,6 +1,5 @@
 package com.example.parcial_1_am_acn4a_ruanova_jorge;
 
-import android.annotation.SuppressLint;
 import android.icu.util.Calendar;
 
 import java.security.SecureRandom;
@@ -35,6 +34,8 @@ public class TurnoMedico {
         return estado;
     }
 
+
+    // este es el setter que va a usar el user para cancelar turno, o el medico para marcar como finalizado o cancelado
     public void setEstado(EstadoTurno estado) {
         this.estado = estado;
     }
@@ -56,8 +57,8 @@ public class TurnoMedico {
 
 
     public String getFechaFormateada() {
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd yyyy"); // Formato deseado
-        return sdf.format(getFechaTurno()); // Convierte la fecha limpia en un String
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd yyyy");
+        return sdf.format(getFechaTurno());
     }
 
     public String getHoraTurno() {

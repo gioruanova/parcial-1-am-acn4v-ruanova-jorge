@@ -3,6 +3,8 @@ package com.example.parcial_1_am_acn4a_ruanova_jorge;
 import java.util.ArrayList;
 import java.util.List;
 
+
+// Creacion generica de usuarios para tener interactividad
 public class ListadoUsuarios {
 
     final private List<Usuario> listaUsuarios;

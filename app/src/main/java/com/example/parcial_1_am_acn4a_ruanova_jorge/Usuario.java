@@ -3,6 +3,8 @@ package com.example.parcial_1_am_acn4a_ruanova_jorge;
 import java.io.Serializable;
 import java.util.Objects;
 
+
+//hacer esta clase abstract y generar una subclase paciente, admin y doctor (va a escalar mal el programa sino)
 public class Usuario implements Serializable {
     private String nombreUsuario;
 
@@ -48,8 +50,6 @@ public class Usuario implements Serializable {
     public String getDniUsuario() {
         return dniUsuario;
     }
-
-
 
     public boolean isDoctor() {
         return isDoctor;
