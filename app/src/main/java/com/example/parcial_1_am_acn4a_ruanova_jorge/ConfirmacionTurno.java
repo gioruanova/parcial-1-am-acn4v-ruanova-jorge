@@ -25,7 +25,7 @@ public class ConfirmacionTurno extends AppCompatActivity {
         usuarioLogueadoTextView.setText(usuarioLogueado.getNombreUsuario());
 
         TextView infoTurno = findViewById(R.id.infoTurno);
-        RegistroTurnos registroTurnos = RegistroTurnos.obtenerInstancia();
+        ListadoTurnos registroTurnos = ListadoTurnos.obtenerInstancia();
         ArrayList<TurnoMedico> turnos = registroTurnos.obtenerTurnos();
 
         for (TurnoMedico turno : turnos) {

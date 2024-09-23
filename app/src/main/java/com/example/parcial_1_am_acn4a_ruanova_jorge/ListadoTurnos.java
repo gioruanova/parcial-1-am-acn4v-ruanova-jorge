@@ -2,19 +2,19 @@ package com.example.parcial_1_am_acn4a_ruanova_jorge;
 
 import java.util.ArrayList;
 
-public class RegistroTurnos {
+public class ListadoTurnos {
 
-    private static RegistroTurnos instancia;
+    private static ListadoTurnos instancia;
 
     private final ArrayList<TurnoMedico> turnos;
 
-    private RegistroTurnos() {
+    private ListadoTurnos() {
         turnos = new ArrayList<>();
     }
 
-    public static synchronized RegistroTurnos obtenerInstancia() {
+    public static synchronized ListadoTurnos obtenerInstancia() {
         if (instancia == null) {
-            instancia = new RegistroTurnos();
+            instancia = new ListadoTurnos();
         }
         return instancia;
     }

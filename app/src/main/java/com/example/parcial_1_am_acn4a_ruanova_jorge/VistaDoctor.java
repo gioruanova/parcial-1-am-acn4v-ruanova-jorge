@@ -32,7 +32,7 @@ public class VistaDoctor extends AppCompatActivity {
         Button btnMensajesDoctor = findViewById(R.id.btn_mensajes_doctor);
         btnMensajesDoctor.setOnClickListener(View -> Toast.makeText(VistaDoctor.this, "Mostrando vista mensajes medicos", Toast.LENGTH_LONG).show());
 
-        Button btnSalir = findViewById(R.id.btn_salir);
+        Button btnSalir = findViewById(R.id.btn_volver_home);
         btnSalir.setOnClickListener(View -> Toast.makeText(VistaDoctor.this, "Deslogueando...", Toast.LENGTH_LONG).show());
 
         btnSalir.setOnClickListener(view -> Navegacion.desloguearUsuario(VistaDoctor.this, MainActivity.class));

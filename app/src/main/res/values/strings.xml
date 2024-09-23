@@ -24,13 +24,16 @@
 
 
 <!--Vista paciente-->
+<!--    Home-->
     <string name="titulo_vista_paciente">"Panel Vista Paciente"</string>
     <string name="btn_nuevo_turno">"Nuevo Turno"</string>
     <string name="btn_mis_turnos">"Mis Turnos"</string>
     <string name="btn_mis_datos">"Mis Datos"</string>
     <string name="btn_mensajes">"Mensajes"</string>
     <string name="btn_salir">"Salir"</string>
-    <!--fin body home-->
+    <!--    Turnos-->
+    <string name="titulo_turnos_paciente">"Mi historial de turnos"</string>
+    <string name="btn_volver">"Volver"</string>
 
     <!--body nuevo turno-->
     <string name="titulo_nuevo_turno">"Solicitud de turno"</string>

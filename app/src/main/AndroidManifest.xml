@@ -27,6 +27,9 @@
             android:name=".VistaDoctor"
             android:exported="false" />
         <activity
+            android:name=".TurnosVistaPaciente"
+            android:exported="true"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

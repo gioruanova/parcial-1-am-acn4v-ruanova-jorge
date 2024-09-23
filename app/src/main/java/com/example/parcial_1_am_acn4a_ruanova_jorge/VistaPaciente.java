@@ -36,7 +36,17 @@ public class VistaPaciente extends AppCompatActivity {
         });
 
         Button btnMisTurnos = findViewById(R.id.btn_mis_turnos);
-        btnMisTurnos.setOnClickListener(View -> Toast.makeText(VistaPaciente.this, "Proximamente", Toast.LENGTH_LONG).show());
+        btnMisTurnos.setOnClickListener(view -> {
+            Intent intentMisTurnosPaciente = new Intent(VistaPaciente.this, TurnosVistaPaciente.class);
+            intentMisTurnosPaciente.putExtra("usuario", usuario);  // envio el objeto usuarioo
+
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(
+                    VistaPaciente.this,
+                    R.anim.slide_in_right,
+                    R.anim.slide_out_left
+            );
+            startActivity(intentMisTurnosPaciente, options.toBundle());
+        });
 
         Button btnMensajes = findViewById(R.id.btn_mensajes);
         btnMensajes.setOnClickListener(View -> Toast.makeText(VistaPaciente.this, "Proximamente", Toast.LENGTH_LONG).show());
@@ -44,7 +54,7 @@ public class VistaPaciente extends AppCompatActivity {
         Button btnMisDatos = findViewById(R.id.btn_mis_datos);
         btnMisDatos.setOnClickListener(View -> Toast.makeText(VistaPaciente.this, "Proximamente", Toast.LENGTH_LONG).show());
 
-        Button btnSalir = findViewById(R.id.btn_salir);
+        Button btnSalir = findViewById(R.id.btn_volver_home);
         btnSalir.setOnClickListener(view -> Navegacion.desloguearUsuario(VistaPaciente.this, MainActivity.class));
 
     }

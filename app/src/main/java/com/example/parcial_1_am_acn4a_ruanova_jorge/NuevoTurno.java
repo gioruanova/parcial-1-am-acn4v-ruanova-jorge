@@ -37,19 +37,9 @@ public class NuevoTurno extends AppCompatActivity {
         assert usuarioLogueado != null;
         usuarioLogueadoTextView.setText(usuarioLogueado.getNombreUsuario());
 
-        Button btnNuevoTurno = findViewById(R.id.btn_solicitar_turno);
-        Button btnVolverHome = findViewById(R.id.btn_volver_home);
 
-        btnVolverHome.setOnClickListener(view -> {
-            Intent volverAVistaPrincipal = new Intent(NuevoTurno.this, VistaPaciente.class);
-            volverAVistaPrincipal.putExtra("usuario", usuarioLogueado);
-            ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(
-                    NuevoTurno.this,
-                    R.anim.slide_in_left,
-                    R.anim.slide_out_right
-            );
-            startActivity(volverAVistaPrincipal, options.toBundle());});
 
+        // Gestion de turno y obtencion de datos
 
         // Seleccion de especialidad
         spinnerEspecialidad = findViewById(R.id.spinnerEspecialidad);
@@ -83,8 +73,11 @@ public class NuevoTurno extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerHorario.setAdapter(adapter);
 
+        // Fin gestion de turno y obtencion de datos
 
-        btnNuevoTurno.setOnClickListener(view -> {
+
+        Button btnSolicitarTurno = findViewById(R.id.btn_solicitar_turno);
+        btnSolicitarTurno.setOnClickListener(view -> {
             String especialidad = spinnerEspecialidad.getSelectedItem().toString();
             String hora = spinnerHorario.getSelectedItem().toString();
 
@@ -105,9 +98,9 @@ public class NuevoTurno extends AppCompatActivity {
             }
 
 
-            TurnoMedico turno = new TurnoMedico(usuarioLogueado, especialidad, fechaSeleccionada, hora);
-            RegistroTurnos listaDeTurnos = RegistroTurnos.obtenerInstancia();
-            listaDeTurnos.agregarTurno(turno);
+            TurnoMedico nuevoTurno = new TurnoMedico(usuarioLogueado, especialidad, fechaSeleccionada, hora);
+            ListadoTurnos listaDeTurnos = ListadoTurnos.obtenerInstancia();
+            listaDeTurnos.agregarTurno(nuevoTurno);
 
             Intent intentConfirmacion = new Intent(NuevoTurno.this, ConfirmacionTurno.class);
             intentConfirmacion.putExtra("usuario", usuarioLogueado);
@@ -120,5 +113,18 @@ public class NuevoTurno extends AppCompatActivity {
 
 
         });
+
+        Button btnVolverHome = findViewById(R.id.btn_volver_home);
+
+        btnVolverHome.setOnClickListener(view -> {
+            Intent volverAVistaPrincipal = new Intent(NuevoTurno.this, VistaPaciente.class);
+            volverAVistaPrincipal.putExtra("usuario", usuarioLogueado);
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(
+                    NuevoTurno.this,
+                    R.anim.slide_in_left,
+                    R.anim.slide_out_right
+            );
+            startActivity(volverAVistaPrincipal, options.toBundle());});
+
     }
 }

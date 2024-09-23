@@ -17,6 +17,7 @@ public class TurnoMedico {
     private String horaTurno;
     private Usuario usuario;
     private String id;
+    private boolean estado;
 
 
     public TurnoMedico(Usuario usuario, String especialidad, Date fechaSeleccionada, String horaTurno) {
@@ -25,6 +26,7 @@ public class TurnoMedico {
         this.horaTurno = horaTurno;
         this.id = generarNumeroDeIDAleatorio(10000);
         this.usuario = usuario;
+        this.estado = true;
     }
 
 
