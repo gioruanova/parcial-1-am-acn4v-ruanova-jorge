@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
 
@@ -54,7 +55,7 @@ public class TurnosVistaPaciente extends AppCompatActivity {
 
                     ArrayAdapter<TurnoMedico> myAdapter = new ArrayAdapter<TurnoMedico>(this, R.layout.item_turno_paciente, turnosList) {
                         @Override
-                        public View getView(int position, View convertView, ViewGroup parent) {
+                        public View getView(int position, View convertView, @NonNull ViewGroup parent) {
                             if (convertView == null) {
                                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_turno_paciente, parent, false);
                             }
@@ -81,16 +82,13 @@ public class TurnosVistaPaciente extends AppCompatActivity {
 
 
 
-        miListaTurnos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TurnoMedico turnoSeleccionado = turnosList.get(position);
-                String turnoId = turnoSeleccionado.getId();
+        miListaTurnos.setOnItemClickListener((parent1, view, position, id) -> {
+            TurnoMedico turnoSeleccionado = turnosList.get(position);
+            String turnoId = turnoSeleccionado.getId();
 
-                Log.d(TAG, turnoId);
-                Toast.makeText(TurnosVistaPaciente.this, "El turno a mostrar en la siguiente vista es: " + turnoId, Toast.LENGTH_LONG).show();
+            Log.d(TAG, turnoId);
+            Toast.makeText(TurnosVistaPaciente.this, "El turno a mostrar en la siguiente vista es: " + turnoId, Toast.LENGTH_LONG).show();
 
-            }
         });
 
 
