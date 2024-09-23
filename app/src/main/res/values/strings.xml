@@ -12,6 +12,7 @@
     <string name="btn_recuperar">"Recuperar Acceso"</string>
 
     <!--Vista medico-->
+    <string name="medico_saludo">Dr. %1$s</string>
     <string name="titulo_vista_medico">"Panel Vista Medica"</string>
 
 

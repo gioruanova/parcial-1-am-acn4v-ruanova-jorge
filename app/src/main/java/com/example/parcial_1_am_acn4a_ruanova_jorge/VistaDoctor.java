@@ -16,16 +16,11 @@ public class VistaDoctor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vista_doctor);
 
-
         Usuario usuario = (Usuario) getIntent().getSerializableExtra("usuario");
         TextView usuarioLogueadoTextView = findViewById(R.id.usuario_logueado);
         assert usuario != null;
-        usuarioLogueadoTextView.setText("Dr. "  + usuario.getNombreUsuario());
-
-//        UsuarioLogueado.getInstance().setNombreUsuario("Jorge Ruanova");
-//        UsuarioLogueado.getInstance().setDniUsuario("32952245");
-//        TextView usuarioLogueadoTextView = findViewById(R.id.usuario_logueado);
-//        usuarioLogueadoTextView.setText(UsuarioLogueado.getInstance().getNombreUsuario());
+        String usuarioSaludo = getString(R.string.medico_saludo, usuario.getNombreUsuario());
+        usuarioLogueadoTextView.setText(usuarioSaludo);
 
 
         Button btnMisTurnosDoctor = findViewById(R.id.btn_turnos_doctor);

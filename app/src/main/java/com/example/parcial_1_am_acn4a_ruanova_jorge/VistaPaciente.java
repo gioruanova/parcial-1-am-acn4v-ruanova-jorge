@@ -36,7 +36,6 @@ public class VistaPaciente extends AppCompatActivity {
         });
 
         Button btnMisTurnos = findViewById(R.id.btn_mis_turnos);
-
         btnMisTurnos.setOnClickListener(View -> Toast.makeText(VistaPaciente.this, "Proximamente", Toast.LENGTH_LONG).show());
 
         Button btnMensajes = findViewById(R.id.btn_mensajes);
