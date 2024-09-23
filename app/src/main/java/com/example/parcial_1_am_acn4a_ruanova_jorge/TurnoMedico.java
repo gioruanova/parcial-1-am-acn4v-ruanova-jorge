@@ -1,10 +1,12 @@
 package com.example.parcial_1_am_acn4a_ruanova_jorge;
 
+import android.icu.text.DateFormat;
 import android.icu.util.Calendar;
 
 import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 
 
@@ -57,8 +59,8 @@ public class TurnoMedico {
 
 
     public String getFechaFormateada() {
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd yyyy");
-        return sdf.format(getFechaTurno());
+        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.getDefault());
+        return dateFormat.format(getFechaTurno());
     }
 
     public String getHoraTurno() {

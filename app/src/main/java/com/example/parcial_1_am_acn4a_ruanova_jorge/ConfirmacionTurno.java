@@ -39,7 +39,7 @@ public class ConfirmacionTurno extends AppCompatActivity {
                         turno.getUsuario().getNombreUsuario(),
                         turno.getEspecialidad(),
                         turno.getId(),
-                        turno.getFechaTurno(),
+                        turno.getFechaFormateada(),
                         turno.getHoraTurno()));
             }
         }
