@@ -35,6 +35,10 @@
     <string name="titulo_turnos_paciente">"Mi historial de turnos"</string>
     <string name="btn_volver">"Volver"</string>
 
+
+    <!--body nuevo turno-->
+    <string name="sin_turnos_generados">"No hay turnos generados"</string>
+
     <!--body nuevo turno-->
     <string name="titulo_nuevo_turno">"Solicitud de turno"</string>
     <string name="btn_solicitar_turno">"Solicitar"</string>

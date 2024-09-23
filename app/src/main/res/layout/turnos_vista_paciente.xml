@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="16dp"
-                android:text="No hay turnos generados"
+                android:text="@string/sin_turnos_generados"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="18sp" />

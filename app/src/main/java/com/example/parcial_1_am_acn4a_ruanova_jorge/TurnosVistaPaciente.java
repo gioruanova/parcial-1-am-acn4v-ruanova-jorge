@@ -41,7 +41,7 @@ public class TurnosVistaPaciente extends AppCompatActivity {
         TextView textoError = findViewById(R.id.texto_error);
 
 
-        if (turnos.size() > 0) {
+        if (!turnos.isEmpty()) {
             for (TurnoMedico turno : turnos) {
                 if(turno.getUsuario().getDniUsuario().equals(usuarioLogueado.getDniUsuario())){
                     Log.d(TAG, "Turno: " + turno.getFechaTurno()+" - "+turno.getHoraTurno() + " - " + turno.getEspecialidad());
