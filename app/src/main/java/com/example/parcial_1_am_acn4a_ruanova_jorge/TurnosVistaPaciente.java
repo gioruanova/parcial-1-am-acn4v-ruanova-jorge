@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -54,6 +53,7 @@ public class TurnosVistaPaciente extends AppCompatActivity {
                     turnosList.add(turno);
 
                     ArrayAdapter<TurnoMedico> myAdapter = new ArrayAdapter<TurnoMedico>(this, R.layout.item_turno_paciente, turnosList) {
+                        @NonNull
                         @Override
                         public View getView(int position, View convertView, @NonNull ViewGroup parent) {
                             if (convertView == null) {
