@@ -13,4 +13,8 @@
     <!--inputs-->
     <dimen name="margenes_inputs">15dp</dimen>
 
+    <dimen name="body_padding">20dp</dimen>
+    <dimen name="body_padding_land">10dp</dimen>
+
+
 </resources>

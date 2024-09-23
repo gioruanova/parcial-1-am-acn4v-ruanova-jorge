@@ -9,51 +9,66 @@
     tools:context=".TurnosVistaPaciente"
     tools:ignore="VisualLintBounds">
 
-    <!-- header -->
+    <!-- Header -->
     <include
         android:id="@+id/header"
-        layout="@layout/header" />
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Contenido principal -->
+    <!-- Footer -->
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Body Content with List and Button -->
     <LinearLayout
         android:id="@+id/body_content"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/fondo_contendores"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="20dp"
+        android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@id/footer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/colores_textos_dark"
         app:layout_constraintTop_toBottomOf="@id/header">
 
-        <!-- Título -->
+        <!-- Title -->
         <TextView
             android:id="@+id/titulo_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="5dp"
             android:text="@string/titulo_turnos_paciente"
             android:textAlignment="center"
             android:textColor="@color/colores_textos_dark"
             android:textSize="@dimen/texto_titulo" />
 
+        <!-- Content Container -->
         <FrameLayout
             android:id="@+id/contenedor_turnos"
             android:layout_width="match_parent"
-            android:textColor="@color/colores_textos_dark"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
             <ListView
                 android:id="@+id/listado_turnos_lista"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:cacheColorHint="#000000"
                 android:divider="@android:drawable/bottom_bar"
                 android:dividerHeight="1dp"
@@ -65,14 +80,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:padding="16dp"
                 android:text="@string/sin_turnos_generados"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
         </FrameLayout>
 
-        <!-- Botón para volver a inicio -->
+        <!-- Button to go back -->
         <Button
             android:id="@+id/btn_volver_home"
             android:layout_width="wrap_content"
@@ -85,13 +99,7 @@
             android:textColor="@color/textDisrruptive"
             android:textSize="@dimen/texto_botones"
             android:textStyle="bold"
-            app:cornerRadius="@dimen/botones_borde"
-            tools:ignore="VisualLintButtonSize" />
+            app:cornerRadius="@dimen/botones_borde" />
     </LinearLayout>
-
-    <!-- footer -->
-    <include
-        android:id="@+id/footer"
-        layout="@layout/footer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
