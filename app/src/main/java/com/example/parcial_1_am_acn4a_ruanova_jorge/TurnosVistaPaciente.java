@@ -3,9 +3,8 @@ package com.example.parcial_1_am_acn4a_ruanova_jorge;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +16,6 @@ import java.util.ArrayList;
 public class TurnosVistaPaciente extends AppCompatActivity {
 
     private static final String TAG = "listaturnos";
-    private ListView listadoTurnosPaciente;
 
 
     @Override
@@ -32,23 +30,18 @@ public class TurnosVistaPaciente extends AppCompatActivity {
 
         ListadoTurnos listaDeTurnos = ListadoTurnos.obtenerInstancia();
         ArrayList<TurnoMedico> turnos = listaDeTurnos.obtenerTurnos();
-        listadoTurnosPaciente = findViewById(R.id.listado_turnos_paciente);
 
-        ArrayList<String> turnosStrings = new ArrayList<>();
+
+        LinearLayout listadoTurnos = findViewById(R.id.lista_turnos_inner);
+
+
         for (TurnoMedico turno : turnos) {
-            String turnoString = "Dr. " + turno.getUsuario().getNombreUsuario() + "\n" +
-                    "Especialidad: " + turno.getEspecialidad() + "\n" +
-                    "Fecha: " + turno.getFechaTurno()+
-                    "Hora: " + turno.getHoraTurno();
-            turnosStrings.add(turnoString);
+            TextView registroTurno = new TextView(this);
+            registroTurno.setTextColor(getResources().getColor(android.R.color.black, getTheme()));
+            registroTurno.setText(turno.getId() + " - " + turno.getFechaTurno() + " - " + turno.getHoraTurno() + " - "  + turno.getEspecialidad());
+            listadoTurnos.addView(registroTurno);
+            Log.d(TAG, "Turno: " + turno.getUsuario().getNombreUsuario() + ", Especialidad: " + turno.getEspecialidad());
         }
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1,
-                turnosStrings
-        );
-        listadoTurnosPaciente.setAdapter(adapter);
 
 
         Button btnVolverHome = findViewById(R.id.btn_volver_home);
