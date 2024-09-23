@@ -4,7 +4,6 @@ import android.icu.text.DateFormat;
 import android.icu.util.Calendar;
 
 import java.security.SecureRandom;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
