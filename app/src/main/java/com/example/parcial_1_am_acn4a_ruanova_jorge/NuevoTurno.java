@@ -23,12 +23,10 @@ public class NuevoTurno extends AppCompatActivity {
 
     private static final String TAG = "listaturnos";
 
-
      EditText selectorFecha;
      Spinner spinnerEspecialidad;
      Date fechaSeleccionada;
      Spinner spinnerHorario;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
