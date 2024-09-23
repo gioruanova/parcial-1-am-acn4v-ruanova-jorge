@@ -5,6 +5,15 @@ import java.util.Objects;
 
 public class Usuario implements Serializable {
     private String nombreUsuario;
+
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
+    }
+
     private String dniUsuario;
     private String contrasenia;
     private boolean isDoctor;

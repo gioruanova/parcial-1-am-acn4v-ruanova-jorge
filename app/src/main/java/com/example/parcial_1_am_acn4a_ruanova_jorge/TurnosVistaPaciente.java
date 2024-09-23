@@ -45,11 +45,10 @@ public class TurnosVistaPaciente extends AppCompatActivity {
         ViewGroup parent = (ViewGroup) miListaTurnos.getParent();
         TextView textoError = findViewById(R.id.texto_error);
 
-        if (!turnos.isEmpty()) {
+
             for (TurnoMedico turno : turnos) {
                 if(turno.getUsuario().getDniUsuario().equals(usuarioLogueado.getDniUsuario())) {
-                    String estado = (turno.isEstado() ? "ACTIVO" : "CANCELADO");
-                    Log.d(TAG, "Turno: " + turno.getFechaTurno() + " - " + turno.getHoraTurno() + " - " + turno.getEspecialidad() + " - " + estado);
+                    Log.d(TAG, "Turno: " + turno.getFechaTurno() + " - " + turno.getHoraTurno() + " - " + turno.getEspecialidad() + " - " + turno.getEstado().getDescripcion());
                     turnosList.add(turno);
 
                     ArrayAdapter<TurnoMedico> myAdapter = new ArrayAdapter<TurnoMedico>(this, R.layout.item_turno_paciente, turnosList) {
@@ -63,7 +62,7 @@ public class TurnosVistaPaciente extends AppCompatActivity {
 
                             TextView textView = convertView.findViewById(R.id.item_turno_paciente);
                             if (turno != null) {
-                                String texto = "Turno: " + turno.getFechaTurno() + " - " + turno.getHoraTurno() + " - " + turno.getEspecialidad() + " - " + (turno.isEstado() ? "ACTIVO" : "CANCELADO");
+                                String texto = "Turno: " + turno.getFechaTurno() + " - " + turno.getHoraTurno() + " - " + turno.getEspecialidad() + " - " + turno.getEstado().getDescripcion();
                                 textView.setText(texto);
                             }
 
@@ -76,9 +75,6 @@ public class TurnosVistaPaciente extends AppCompatActivity {
                     Log.d(TAG, "No hay turnos para el usuario");
                 }
             }
-        } else {
-            Log.d(TAG, "No hay turnos");
-        }
 
 
 
