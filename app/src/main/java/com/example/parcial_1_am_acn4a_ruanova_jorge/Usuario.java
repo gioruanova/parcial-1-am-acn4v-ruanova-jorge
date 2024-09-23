@@ -1,11 +1,14 @@
 package com.example.parcial_1_am_acn4a_ruanova_jorge;
 
-public class Usuario {
-    private static UsuarioLogueado instance;
+import java.io.Serializable;
+import java.util.Objects;
+
+public class Usuario implements Serializable {
     private String nombreUsuario;
     private String dniUsuario;
     private String contrasenia;
     private boolean isDoctor;
+    private String especialidad;
 
 
     public Usuario(String nombreUsuario, String contrasenia,String dniUsuario, boolean isDoctor) {
@@ -15,45 +18,45 @@ public class Usuario {
         this.contrasenia=contrasenia;
     }
 
+    public Usuario(String nombreUsuario, String contrasenia,String dniUsuario, boolean isDoctor, String especialidad) {
+        this.nombreUsuario = nombreUsuario;
+        this.dniUsuario = dniUsuario;
+        this.isDoctor = isDoctor;
+        this.contrasenia=contrasenia;
+        this.especialidad = especialidad;
+    }
+
     public String getContrasenia() {
         return contrasenia;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
-
-    public static UsuarioLogueado getInstance() {
-        return instance;
-    }
-
-    public static void setInstance(UsuarioLogueado instance) {
-        Usuario.instance = instance;
-    }
 
     public String getNombreUsuario() {
         return nombreUsuario;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
-    }
 
     public String getDniUsuario() {
         return dniUsuario;
     }
 
-    public void setDniUsuario(String dniUsuario) {
-        this.dniUsuario = dniUsuario;
-    }
+
 
     public boolean isDoctor() {
         return isDoctor;
     }
 
-
-
-    public void setDoctor(boolean doctor) {
-        isDoctor = doctor;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Usuario)) return false;
+        Usuario usuario = (Usuario) o;
+        return isDoctor == usuario.isDoctor && Objects.equals(nombreUsuario, usuario.nombreUsuario) && Objects.equals(dniUsuario, usuario.dniUsuario) && Objects.equals(contrasenia, usuario.contrasenia);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombreUsuario, dniUsuario, contrasenia, isDoctor);
+    }
+
 }

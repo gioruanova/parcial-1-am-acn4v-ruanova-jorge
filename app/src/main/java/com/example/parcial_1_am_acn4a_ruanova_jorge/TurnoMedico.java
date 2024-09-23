@@ -15,15 +15,11 @@ public class TurnoMedico {
     private String especialidad;
     private Date fechaTurno;
     private String horaTurno;
-    private String usuario;
+    private Usuario usuario;
     private String id;
 
 
-    public TurnoMedico() {
-
-    }
-
-    public TurnoMedico(String usuario, String especialidad, Date fechaSeleccionada, String horaTurno) {
+    public TurnoMedico(Usuario usuario, String especialidad, Date fechaSeleccionada, String horaTurno) {
         this.especialidad = especialidad;
         this.fechaTurno = fechaSeleccionada;
         this.horaTurno = horaTurno;
@@ -36,33 +32,20 @@ public class TurnoMedico {
         return especialidad;
     }
 
-    public void setEspecialidad(String especialidad) {
-        this.especialidad = especialidad;
-    }
 
     public String getFechaTurno() {
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         return sdf.format(fechaTurno);    }
 
-    public void setFechaTurno(Date fechaTurno) {
-        this.fechaTurno = fechaTurno;
-    }
-
     public String getHoraTurno() {
         return horaTurno;
     }
 
-    public void setHoraTurno(String horaTurno) {
-        this.horaTurno = horaTurno;
-    }
 
-    public String getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
 
     public String getId() {
         return id;
@@ -74,13 +57,12 @@ public class TurnoMedico {
     }
 
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof TurnoMedico)) return false;
         TurnoMedico that = (TurnoMedico) o;
-        return Objects.equals(especialidad, that.especialidad) && Objects.equals(fechaTurno, that.fechaTurno) && Objects.equals(horaTurno, that.horaTurno) && Objects.equals(usuario, that.usuario);
+        return Objects.equals(usuario, that.usuario);
     }
 
     @Override

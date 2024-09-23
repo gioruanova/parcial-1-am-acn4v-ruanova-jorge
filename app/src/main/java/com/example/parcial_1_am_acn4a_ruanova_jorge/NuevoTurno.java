@@ -21,10 +21,9 @@ import java.util.Date;
 public class NuevoTurno extends AppCompatActivity {
 
     private EditText selectorFecha;
-
     private Spinner spinnerEspecialidad;
     private Date fechaSeleccionada;
-        private Spinner spinnerHorario;
+    private Spinner spinnerHorario;
 
 
     @Override
@@ -33,22 +32,23 @@ public class NuevoTurno extends AppCompatActivity {
         setContentView(R.layout.activity_nuevo_turno);
 
 
-        String nombreUsuario = UsuarioLogueado.getInstance().getNombreUsuario();
+        Usuario usuarioLogueado = (Usuario) getIntent().getSerializableExtra("usuario");
         TextView usuarioLogueadoTextView = findViewById(R.id.usuario_logueado);
-
-        usuarioLogueadoTextView.setText(nombreUsuario);
+        assert usuarioLogueado != null;
+        usuarioLogueadoTextView.setText(usuarioLogueado.getNombreUsuario());
 
         Button btnNuevoTurno = findViewById(R.id.btn_solicitar_turno);
         Button btnVolverHome = findViewById(R.id.btn_volver_home);
 
         btnVolverHome.setOnClickListener(view -> {
-            Intent intentVistaPaciente = new Intent(NuevoTurno.this, VistaPaciente.class);
-            startActivity(intentVistaPaciente); // lanzo actividad home ->main
-
-            // desplazamiento lateral
-            ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(NuevoTurno.this, R.anim.slide_in_left, R.anim.slide_out_right);
-            startActivity(intentVistaPaciente, options.toBundle());
-        });
+            Intent volverAVistaPrincipal = new Intent(NuevoTurno.this, VistaPaciente.class);
+            volverAVistaPrincipal.putExtra("usuario", usuarioLogueado);
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(
+                    NuevoTurno.this,
+                    R.anim.slide_in_left,
+                    R.anim.slide_out_right
+            );
+            startActivity(volverAVistaPrincipal, options.toBundle());});
 
 
         // Seleccion de especialidad
@@ -67,14 +67,9 @@ public class NuevoTurno extends AppCompatActivity {
             int dia = calendar.get(Calendar.DAY_OF_MONTH);
 
             DatePickerDialog datePickerDialog = new DatePickerDialog(NuevoTurno.this, (view, yearSelected, monthSelected, dayOfMonthSelected) -> {
-                // Guarda la fecha seleccionada en un objeto Calendar
                 Calendar selectedDate = Calendar.getInstance();
                 selectedDate.set(yearSelected, monthSelected, dayOfMonthSelected);
-
-                // Convierte el objeto Calendar en un objeto Date
                 fechaSeleccionada = selectedDate.getTime();
-
-                // Formatea la fecha como una cadena para mostrar en el TextView
                 String formattedDate = dayOfMonthSelected + "-" + (monthSelected + 1) + "-" + yearSelected;
                 selectorFecha.setText(formattedDate);
             }, anio, mes, dia);
@@ -110,12 +105,13 @@ public class NuevoTurno extends AppCompatActivity {
             }
 
 
-            TurnoMedico turno = new TurnoMedico(nombreUsuario, especialidad, fechaSeleccionada, hora);
+            TurnoMedico turno = new TurnoMedico(usuarioLogueado, especialidad, fechaSeleccionada, hora);
             RegistroTurnos listaDeTurnos = RegistroTurnos.obtenerInstancia();
             listaDeTurnos.agregarTurno(turno);
 
             Intent intentConfirmacion = new Intent(NuevoTurno.this, ConfirmacionTurno.class);
-            startActivity(intentConfirmacion); // lanzo actividad home ->main
+            intentConfirmacion.putExtra("usuario", usuarioLogueado);
+            startActivity(intentConfirmacion);
 
             // desplazamiento lateral
             ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(NuevoTurno.this, R.anim.slide_in_right,

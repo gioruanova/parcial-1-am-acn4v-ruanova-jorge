@@ -2,6 +2,7 @@ package com.example.parcial_1_am_acn4a_ruanova_jorge;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,12 @@ public class VistaDoctor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vista_doctor);
+
+
+        Usuario usuario = (Usuario) getIntent().getSerializableExtra("usuario");
+        TextView usuarioLogueadoTextView = findViewById(R.id.usuario_logueado);
+        assert usuario != null;
+        usuarioLogueadoTextView.setText("Dr. "  + usuario.getNombreUsuario());
 
 //        UsuarioLogueado.getInstance().setNombreUsuario("Jorge Ruanova");
 //        UsuarioLogueado.getInstance().setDniUsuario("32952245");
@@ -32,6 +39,8 @@ public class VistaDoctor extends AppCompatActivity {
 
         Button btnSalir = findViewById(R.id.btn_salir);
         btnSalir.setOnClickListener(View -> Toast.makeText(VistaDoctor.this, "Deslogueando...", Toast.LENGTH_LONG).show());
+
+        btnSalir.setOnClickListener(view -> Navegacion.desloguearUsuario(VistaDoctor.this, MainActivity.class));
 
     }
 }

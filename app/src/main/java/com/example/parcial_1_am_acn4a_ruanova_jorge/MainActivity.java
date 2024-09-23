@@ -2,7 +2,6 @@ package com.example.parcial_1_am_acn4a_ruanova_jorge;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -12,9 +11,6 @@ import androidx.core.app.ActivityOptionsCompat;
 
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "ListadoUsuariosLog";
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,9 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
         EditText inputDni = findViewById(R.id.input_dni);
         EditText inputPassword = findViewById(R.id.input_password);
-
-
-
 
         Button btnLogin = findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(view -> {
@@ -40,14 +33,10 @@ public class MainActivity extends AppCompatActivity {
                 Usuario resultadoLogin = listado.validarUsuario(userDni, userPass);
 
                 if (resultadoLogin == null) {
-                    Log.d(TAG, "Los datos ingresados no son válidos");
                     Toast.makeText(MainActivity.this,
                             "Los datos ingresados son inválidos", Toast.LENGTH_LONG).show();
                 } else {
-                    Log.d(TAG, resultadoLogin.getNombreUsuario() + " - " + resultadoLogin.getContrasenia()+resultadoLogin.isDoctor());
-                    Toast.makeText(MainActivity.this,
-                            "DNI: " + userDni + "\nPassword: " + userPass + resultadoLogin.isDoctor(), Toast.LENGTH_LONG).show();
-                    manejarVista(resultadoLogin.isDoctor());
+                    manejarVista(resultadoLogin.isDoctor(),resultadoLogin);
                 }
             }
         });
@@ -57,34 +46,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void manejarVista(boolean esDoctor) {
+    private void manejarVista(boolean esDoctor, Usuario usuario) {
         if (esDoctor) {
-            lanzarVistaMedico();
+            lanzarVistaMedico(usuario);
         } else {
-            lanzarVistaPaciente();
+            lanzarVistaPaciente(usuario);
         }
     }
 
-    private void lanzarVistaPaciente() {
+    private void lanzarVistaPaciente(Usuario usuario) {
         Intent intentVistaPaciente = new Intent(MainActivity.this, VistaPaciente.class);
+        intentVistaPaciente.putExtra("usuario", usuario);  // Envio el user que se loguea (pacientea)
+
         ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(
                 MainActivity.this,
                 R.anim.slide_in_right,
                 R.anim.slide_out_left
         );
         startActivity(intentVistaPaciente, options.toBundle());
-        Log.d(TAG, "Es paciente");
     }
 
-    private void lanzarVistaMedico() {
+    private void lanzarVistaMedico(Usuario usuario) {
        Intent intentVistaDoctor = new Intent(MainActivity.this, VistaDoctor.class);
+        intentVistaDoctor.putExtra("usuario", usuario);  // Envio el user que se loguea (dr)
+
         ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(
                 MainActivity.this,
                 R.anim.slide_in_right,
                 R.anim.slide_out_left
         );
         startActivity(intentVistaDoctor, options.toBundle());
-
-        Log.d(TAG, "Es doctor");
     }
 }

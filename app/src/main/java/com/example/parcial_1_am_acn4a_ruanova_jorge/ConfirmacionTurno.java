@@ -12,26 +12,26 @@ import androidx.core.app.ActivityOptionsCompat;
 import java.util.ArrayList;
 
 public class ConfirmacionTurno extends AppCompatActivity {
-    String nombreUsuario = UsuarioLogueado.getInstance().getNombreUsuario();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmacion_turno);
 
-
+        Usuario usuarioLogueado = (Usuario) getIntent().getSerializableExtra("usuario");
         TextView usuarioLogueadoTextView = findViewById(R.id.usuario_logueado);
-        usuarioLogueadoTextView.setText(nombreUsuario);
+        assert usuarioLogueado != null;
+        usuarioLogueadoTextView.setText(usuarioLogueado.getNombreUsuario());
 
         TextView infoTurno = findViewById(R.id.infoTurno);
         RegistroTurnos registroTurnos = RegistroTurnos.obtenerInstancia();
         ArrayList<TurnoMedico> turnos = registroTurnos.obtenerTurnos();
 
         for (TurnoMedico turno : turnos) {
-            if (turno.getUsuario().equals(nombreUsuario)) {
+            if (turno.getUsuario().equals(usuarioLogueado)) {
                 infoTurno.setText( getString(R.string.turno_confirmacion_texto,
-                        turno.getUsuario(),
+                        turno.getUsuario().getNombreUsuario(),
                         turno.getEspecialidad(),
                         turno.getId(),
                         turno.getFechaTurno(),
@@ -41,14 +41,15 @@ public class ConfirmacionTurno extends AppCompatActivity {
 
 
         Button volverHome = findViewById(R.id.btn_volver_home);
-
         volverHome.setOnClickListener(view -> {
-            Intent intent = new Intent(ConfirmacionTurno.this, VistaPaciente.class);
-            startActivity(intent); // lanzo actividad home ->main
-
-            // desplazamiento lateral
-            ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(ConfirmacionTurno.this, R.anim.slide_in_left, R.anim.slide_out_right);
-            startActivity(intent, options.toBundle());
+            Intent volverAVistaPrincipal = new Intent(ConfirmacionTurno.this, VistaPaciente.class);
+            volverAVistaPrincipal.putExtra("usuario", usuarioLogueado);
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(
+                    ConfirmacionTurno.this,
+                    R.anim.slide_in_left,
+                    R.anim.slide_out_right
+            );
+            startActivity(volverAVistaPrincipal, options.toBundle());
         });
 
     }
