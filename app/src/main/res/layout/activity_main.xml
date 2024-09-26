@@ -59,8 +59,8 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/login_input_uno"
                     android:inputType="number"
-                    android:textColorHint="@color/black"
                     android:textColor="@color/black"
+                    android:textColorHint="@color/black"
                     tools:ignore="VisualLintTextFieldSize,DuplicateSpeakableTextCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 

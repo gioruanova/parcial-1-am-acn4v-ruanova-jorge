@@ -12,7 +12,7 @@ public class ListadoUsuarios {
     public ListadoUsuarios() {
         listaUsuarios = new ArrayList<>();
         listaUsuarios.add(new Usuario("Jorge Ruanova","123", "32952245",false));
-        listaUsuarios.add(new Usuario("Luis Perez","123", "87654321",false));
+        listaUsuarios.add(new Usuario("Luis Perez","123", "456456",false));
         listaUsuarios.add(new Usuario("Juanito Casas","123", "111",true,"Cardiologo"));
         listaUsuarios.add(new Usuario("Pedro Gomez","123", "222",true, "Nutricionista"));
     }

@@ -6,6 +6,9 @@
     <string name="mensaje_bienvenida">"Bienvenido: "</string>
     <string name="usuario_logueado">"Usuario logueado"</string>
 
+    <!--body home-->
+    <string name="titulo_home">"Bienvenido a Central de Turnos"</string>
+
     <string name="login_input_uno">"Ingrese su numero de dni"</string>
     <string name="login_input_dos">"Ingrese su contraseña"</string>
     <string name="btn_login">"Ingresar"</string>
@@ -14,13 +17,8 @@
     <!--Vista medico-->
     <string name="medico_saludo">Dr. %1$s</string>
     <string name="titulo_vista_medico">"Panel Vista Medica"</string>
+    <string name="btn_mis_turnos_medico">"Turnos asignados"</string>
 
-
-
-
-
-    <!--body home-->
-    <string name="titulo_home">"Bienvenido a Central de Turnos"</string>
 
 
 <!--Vista paciente-->
@@ -29,12 +27,11 @@
     <string name="btn_nuevo_turno">"Nuevo Turno"</string>
     <string name="btn_mis_turnos">"Mis Turnos"</string>
     <string name="btn_mis_datos">"Mis Datos"</string>
-    <string name="btn_mensajes">"Mensajes"</string>
+    <string name="btn_mensajes">"Novedades"</string>
     <string name="btn_salir">"Salir"</string>
     <!--    Turnos-->
     <string name="titulo_turnos_paciente">"Mi historial de turnos"</string>
     <string name="btn_volver">"Volver"</string>
-
 
     <!--body nuevo turno-->
     <string name="sin_turnos_generados">"No hay turnos generados"</string>
