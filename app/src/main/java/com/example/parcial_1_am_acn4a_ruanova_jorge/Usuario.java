@@ -6,16 +6,8 @@ import java.util.Objects;
 
 //hacer esta clase abstract y generar una subclase paciente, admin y doctor (va a escalar mal el programa sino)
 public class Usuario implements Serializable {
+
     private String nombreUsuario;
-
-    public String getEspecialidad() {
-        return especialidad;
-    }
-
-    public void setEspecialidad(String especialidad) {
-        this.especialidad = especialidad;
-    }
-
     private String dniUsuario;
     private String contrasenia;
     private boolean isDoctor;
@@ -32,6 +24,15 @@ public class Usuario implements Serializable {
 
     public Usuario(String nombreUsuario, String contrasenia, String dniUsuario, boolean isDoctor, String especialidad, String emailUsuario) {
         this(nombreUsuario, contrasenia, dniUsuario, isDoctor, emailUsuario);
+        this.especialidad = especialidad;
+    }
+
+
+    public String getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
 
