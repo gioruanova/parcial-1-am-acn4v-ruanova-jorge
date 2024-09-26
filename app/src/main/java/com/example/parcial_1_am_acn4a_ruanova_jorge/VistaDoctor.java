@@ -23,17 +23,15 @@ public class VistaDoctor extends AppCompatActivity {
 
 
         Button btnMisTurnosDoctor = findViewById(R.id.btn_turnos_doctor);
-        btnMisTurnosDoctor.setOnClickListener(View -> Toast.makeText(VistaDoctor.this, "Mostrando vista turnos del medico...", Toast.LENGTH_LONG).show());
+        btnMisTurnosDoctor.setOnClickListener(View -> Toast.makeText(VistaDoctor.this, "Navegando a vista turnos del medico...", Toast.LENGTH_LONG).show());
 
         Button btnMisDatosDoctor = findViewById(R.id.btn_mis_datos_doctor);
-        btnMisDatosDoctor.setOnClickListener(View -> Toast.makeText(VistaDoctor.this, "Mostrando vista datos medicos", Toast.LENGTH_LONG).show());
+        btnMisDatosDoctor.setOnClickListener(View -> Toast.makeText(VistaDoctor.this, "Navegando a vista datos medicos", Toast.LENGTH_LONG).show());
 
         Button btnMensajesDoctor = findViewById(R.id.btn_mensajes_doctor);
-        btnMensajesDoctor.setOnClickListener(View -> Toast.makeText(VistaDoctor.this, "Mostrando vista mensajes medicos", Toast.LENGTH_LONG).show());
+        btnMensajesDoctor.setOnClickListener(View -> Toast.makeText(VistaDoctor.this, "Navegando a vista mensajes medicos", Toast.LENGTH_LONG).show());
 
         Button btnSalir = findViewById(R.id.btn_volver_home);
-        btnSalir.setOnClickListener(View -> Toast.makeText(VistaDoctor.this, "Deslogueando...", Toast.LENGTH_LONG).show());
-
         btnSalir.setOnClickListener(view -> Navegacion.desloguearUsuario(VistaDoctor.this, MainActivity.class));
 
     }

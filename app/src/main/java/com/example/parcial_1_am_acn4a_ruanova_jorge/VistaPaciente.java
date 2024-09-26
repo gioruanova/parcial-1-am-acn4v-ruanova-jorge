@@ -49,10 +49,10 @@ public class VistaPaciente extends AppCompatActivity {
         });
 
         Button btnMensajes = findViewById(R.id.btn_mensajes);
-        btnMensajes.setOnClickListener(View -> Toast.makeText(VistaPaciente.this, "Mostrando mensajes para el paciente", Toast.LENGTH_LONG).show());
+        btnMensajes.setOnClickListener(View -> Toast.makeText(VistaPaciente.this, "Navegando a vista mensajes/boletines para el paciente", Toast.LENGTH_LONG).show());
 
         Button btnMisDatos = findViewById(R.id.btn_mis_datos);
-        btnMisDatos.setOnClickListener(View -> Toast.makeText(VistaPaciente.this, "Mostrando datos del paciente", Toast.LENGTH_LONG).show());
+        btnMisDatos.setOnClickListener(View -> Toast.makeText(VistaPaciente.this, "Navegando a vista mis datos para paciente", Toast.LENGTH_LONG).show());
 
         Button btnSalir = findViewById(R.id.btn_volver_home);
         btnSalir.setOnClickListener(view -> Navegacion.desloguearUsuario(VistaPaciente.this, MainActivity.class));
