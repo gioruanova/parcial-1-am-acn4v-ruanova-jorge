@@ -30,13 +30,13 @@ public class MainActivity extends AppCompatActivity {
 
             if (userDni.isEmpty() || userPass.isEmpty()) {
                 Toast.makeText(MainActivity.this,
-                        "Debe completar usuario y contraseña para ingresar", Toast.LENGTH_LONG).show();
+                        getString(R.string.error_log_campos_vacios), Toast.LENGTH_LONG).show();
             } else {
                 Usuario resultadoLogin = listado.validarUsuario(userDni, userPass);
 
                 if (resultadoLogin == null) {
                     Toast.makeText(MainActivity.this,
-                            "Los datos ingresados son inválidos", Toast.LENGTH_LONG).show();
+                            getString(R.string.error_log_datos_invalidos), Toast.LENGTH_LONG).show();
                 } else {
                     manejarVista(resultadoLogin.isDoctor(),resultadoLogin);
                 }
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button btnRecuperar = findViewById(R.id.btn_reset);
-        btnRecuperar.setOnClickListener(View -> Toast.makeText(MainActivity.this, "Recuperando", Toast.LENGTH_LONG).show());
+        btnRecuperar.setOnClickListener(View -> Toast.makeText(MainActivity.this, "Navegacion a vista recuperar contraseña", Toast.LENGTH_LONG).show());
     }
 
 

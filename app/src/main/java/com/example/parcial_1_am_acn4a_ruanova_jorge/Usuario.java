@@ -20,20 +20,18 @@ public class Usuario implements Serializable {
     private String contrasenia;
     private boolean isDoctor;
     private String especialidad;
+    private String emailUsuario;
 
-
-    public Usuario(String nombreUsuario, String contrasenia,String dniUsuario, boolean isDoctor) {
+    public Usuario(String nombreUsuario, String contrasenia,String dniUsuario, boolean isDoctor,String emailUsuario) {
         this.nombreUsuario = nombreUsuario;
         this.dniUsuario = dniUsuario;
         this.isDoctor = isDoctor;
         this.contrasenia=contrasenia;
+        this.emailUsuario=emailUsuario;
     }
 
-    public Usuario(String nombreUsuario, String contrasenia,String dniUsuario, boolean isDoctor, String especialidad) {
-        this.nombreUsuario = nombreUsuario;
-        this.dniUsuario = dniUsuario;
-        this.isDoctor = isDoctor;
-        this.contrasenia=contrasenia;
+    public Usuario(String nombreUsuario, String contrasenia, String dniUsuario, boolean isDoctor, String especialidad, String emailUsuario) {
+        this(nombreUsuario, contrasenia, dniUsuario, isDoctor, emailUsuario);
         this.especialidad = especialidad;
     }
 

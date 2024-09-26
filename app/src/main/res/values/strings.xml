@@ -21,6 +21,11 @@
 
 
 
+    <!--Proceso de login-->
+    <string name="error_log_campos_vacios">"Debe completar usuario y contraseña para ingresar"</string>
+    <string name="error_log_datos_invalidos">"Los datos ingresados son inválidos"</string>
+
+
 <!--Vista paciente-->
 <!--    Home-->
     <string name="titulo_vista_paciente">"Panel Vista Paciente"</string>
@@ -79,6 +84,13 @@
         <item>Nutricionista</item>
     </string-array>
 
+
+<!--validaciones turno y mensajes-->
+    <string name="error_especialidad">"Debe seleccionar una especialidad"</string>
+    <string name="error_fecha">"Debe seleccionar una fecha"</string>
+    <string name="error_fecha_seleccion">"La fecha debe ser a futuro (no se adminten turnos en el dia)"</string>
+    <string name="error_hora">"Debe seleccionar una hora para su turno"</string>
+    <string name="error_turno_ocupado">"Disculpas. Lamentablemente no hay turnos disponibles en esa especialidad en esa fecha y horario. Cambie sus opciones para poder continuar."</string>
 
 <!--    Confirmacion turno-->
     <string name="confirmacionTurno">"Muchas gracias"</string>

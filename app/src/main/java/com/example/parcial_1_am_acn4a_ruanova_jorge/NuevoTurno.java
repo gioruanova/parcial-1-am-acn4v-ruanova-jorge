@@ -3,7 +3,6 @@ package com.example.parcial_1_am_acn4a_ruanova_jorge;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,7 +20,6 @@ import java.util.Date;
 
 public class NuevoTurno extends AppCompatActivity {
 
-    private static final String TAG = "listaturnos";
 
      EditText selectorFecha;
      Spinner spinnerEspecialidad;
@@ -42,10 +40,6 @@ public class NuevoTurno extends AppCompatActivity {
 
         ListadoTurnos listaDeTurnos = ListadoTurnos.obtenerInstancia();
         ArrayList<TurnoMedico> turnos = listaDeTurnos.obtenerTurnos();
-
-        for (TurnoMedico turno : turnos) {
-            Log.d(TAG, "Turno: " + turno.getFechaTurno() + " - " + turno.getHoraTurno() + " - " + turno.getEspecialidad());
-        }
 
 
         // Gestion de turno y obtencion de datos
@@ -117,22 +111,22 @@ public class NuevoTurno extends AppCompatActivity {
 
             // Condicion para completar los campos
             if (especialidad.isEmpty()) {
-                Toast.makeText(NuevoTurno.this, "Debe seleccionar una especialidad", Toast.LENGTH_LONG).show();
+                Toast.makeText(NuevoTurno.this, getString(R.string.error_especialidad), Toast.LENGTH_LONG).show();
                 return;
             } else if (fechaSeleccionada == null) {
-                Toast.makeText(NuevoTurno.this, "Debe seleccionar una fecha", Toast.LENGTH_LONG).show();
+                Toast.makeText(NuevoTurno.this, getString(R.string.error_fecha), Toast.LENGTH_LONG).show();
                 return;
             } else if (fechaSeleccionada.before(Calendar.getInstance().getTime())) {
-                Toast.makeText(NuevoTurno.this, "La fecha seleccionada no puede ser anterior a la fecha actual", Toast.LENGTH_LONG).show();
+                Toast.makeText(NuevoTurno.this, getString(R.string.error_fecha_seleccion), Toast.LENGTH_LONG).show();
                 return;
             } else if (hora.isEmpty()) {
-                Toast.makeText(NuevoTurno.this, "Debe seleccionar una hora", Toast.LENGTH_LONG).show();
+                Toast.makeText(NuevoTurno.this, getString(R.string.error_hora), Toast.LENGTH_LONG).show();
                 return;
             }
 
             for (TurnoMedico turno : turnos) {
                 if (especialidad.equals(turno.getEspecialidad()) && hora.equals(turno.getHoraTurno()) && normalizeDate(turno.getFechaTurno()).equals(normalizeDate(fechaSeleccionada))) {
-                    Toast.makeText(NuevoTurno.this, "Turno ya ocupado", Toast.LENGTH_LONG).show();
+                    Toast.makeText(NuevoTurno.this, getString(R.string.error_turno_ocupado), Toast.LENGTH_LONG).show();
                     return;
                 }
             }
