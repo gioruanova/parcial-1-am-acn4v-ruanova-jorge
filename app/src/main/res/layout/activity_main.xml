@@ -54,11 +54,11 @@
                 android:baselineAligned="false">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/input_dni"
+                    android:id="@+id/input_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/login_input_uno"
-                    android:inputType="number"
+                    android:inputType="textEmailAddress"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
                     tools:ignore="VisualLintTextFieldSize,DuplicateSpeakableTextCheck" />

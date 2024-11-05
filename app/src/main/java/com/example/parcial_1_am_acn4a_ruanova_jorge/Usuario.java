@@ -54,6 +54,14 @@ public class Usuario implements Serializable {
         return isDoctor;
     }
 
+    public String getEmailUsuario() {
+        return emailUsuario;
+    }
+
+    public void setEmailUsuario(String emailUsuario) {
+        this.emailUsuario = emailUsuario;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

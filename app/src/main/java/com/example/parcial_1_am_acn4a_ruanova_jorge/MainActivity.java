@@ -2,6 +2,7 @@ package com.example.parcial_1_am_acn4a_ruanova_jorge;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,26 +21,44 @@ public class MainActivity extends AppCompatActivity {
         ListadoUsuarios listado = new ListadoUsuarios();
 
         // Proceso de login y validaciones
-        EditText inputDni = findViewById(R.id.input_dni);
+        EditText inputEmail = findViewById(R.id.input_email);
         EditText inputPassword = findViewById(R.id.input_password);
 
         Button btnLogin = findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(view -> {
-            String userDni = inputDni.getText().toString().trim();
+            String userEmail = inputEmail.getText().toString().trim();
             String userPass = inputPassword.getText().toString().trim();
 
-            if (userDni.isEmpty() || userPass.isEmpty()) {
+//            if (userDni.isEmpty() || userPass.isEmpty()) {
+//                Toast.makeText(MainActivity.this,
+//                        getString(R.string.error_log_campos_vacios), Toast.LENGTH_LONG).show();
+//            } else {
+//                Usuario resultadoLogin = listado.validarUsuario(userDni, userPass);
+//
+//                if (resultadoLogin == null) {
+//                    Toast.makeText(MainActivity.this,
+//                            getString(R.string.error_log_datos_invalidos), Toast.LENGTH_LONG).show();
+//                } else {
+//                    manejarVista(resultadoLogin.isDoctor(),resultadoLogin);
+//                }
+//            }
+
+            if (userEmail.isEmpty() || userPass.isEmpty()) {
                 Toast.makeText(MainActivity.this,
                         getString(R.string.error_log_campos_vacios), Toast.LENGTH_LONG).show();
             } else {
-                Usuario resultadoLogin = listado.validarUsuario(userDni, userPass);
+                Usuario resultadoLogin = listado.validarPerfil(userEmail);
 
                 if (resultadoLogin == null) {
                     Toast.makeText(MainActivity.this,
                             getString(R.string.error_log_datos_invalidos), Toast.LENGTH_LONG).show();
                 } else {
-                    manejarVista(resultadoLogin.isDoctor(),resultadoLogin);
+                    manejarVista(resultadoLogin.isDoctor(), resultadoLogin);
+                    Log.i("usuario", resultadoLogin.getNombreUsuario());
                 }
+
+
+
             }
         });
 
@@ -72,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
     // lanzamiento de vista doctor
     private void lanzarVistaMedico(Usuario usuario) {
-       Intent intentVistaDoctor = new Intent(MainActivity.this, VistaDoctor.class);
+        Intent intentVistaDoctor = new Intent(MainActivity.this, VistaDoctor.class);
         intentVistaDoctor.putExtra("usuario", usuario);  // Envio el user que se loguea (dr)
 
         ActivityOptionsCompat options = ActivityOptionsCompat.makeCustomAnimation(
