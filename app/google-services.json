@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "938611412546",
+    "project_id": "acn4a-central-de-turnos",
+    "storage_bucket": "acn4a-central-de-turnos.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938611412546:android:37b01b9d3dbcd54cda67db",
+        "android_client_info": {
+          "package_name": "com.example.parcial_1_am_acn4a_ruanova_jorge"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-u_DoR8W53a3CVPFmYjCvSEMBkCE8nJc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
