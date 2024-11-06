@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_base"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/body_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="232dp"
+        android:layout_marginBottom="230dp"
+        android:background="@drawable/fondo_contendores"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/titulo_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="@string/titulo_recuperar"
+                android:textAlignment="center"
+                android:textColor="@color/colores_textos_dark"
+                android:textSize="@dimen/texto_titulo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:baselineAligned="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/login_input_uno"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    tools:ignore="VisualLintTextFieldSize,DuplicateSpeakableTextCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_reset"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="0.5"
+                android:backgroundTint="@color/button_color_selection"
+                android:text="@string/titulo_recuperar"
+                android:textAllCaps="true"
+                android:textColor="@color/button_text_color"
+                android:textSize="@dimen/texto_botones"
+                android:textStyle="bold"
+                app:cornerRadius="@dimen/botones_borde" />
+
+            <Button
+                android:id="@+id/btn_volver"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="0.5"
+                android:backgroundTint="@color/colorDisrruptivo"
+                android:text="@string/btn_volver"
+                android:textAllCaps="true"
+                android:textColor="@color/button_text_color"
+                android:textSize="@dimen/texto_botones"
+                android:textStyle="bold"
+                app:cornerRadius="@dimen/botones_borde" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

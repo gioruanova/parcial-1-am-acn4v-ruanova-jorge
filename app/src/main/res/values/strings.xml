@@ -14,6 +14,15 @@
     <string name="btn_login">"Ingresar"</string>
     <string name="btn_recuperar">"Recuperar Acceso"</string>
 
+
+<!--    Recuperar contraseña-->
+    <string name="titulo_recuperar">"Recuperar contraseña"</string>
+    <string name="error_recuperar1">"Debe ingresar un correo electronico para continuar"</string>
+    <string name="error_recuperar2">"Ha habido un error. Intente mas tarde"</string>
+    <string name="titulo_recuperar_confirmado">"Su operacion ha sido realizada."</string>
+    <string name="texto_recuperar_confirmado">"Revise su bandeja de entrada donde encontra las intrucciones para cambiar su contraseña."</string>
+    <string name="texto_recuperar_confirmado2">"En caso de tener inconvenientes, comuniquese con su administrador de servicios."</string>
+
     <!--Vista medico-->
     <string name="medico_saludo">Dr. %1$s</string>
     <string name="titulo_vista_medico">"Panel Vista Medica"</string>

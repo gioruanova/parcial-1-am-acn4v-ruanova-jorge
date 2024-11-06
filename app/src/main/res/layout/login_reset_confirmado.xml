@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_base"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/body_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="232dp"
+        android:layout_marginBottom="230dp"
+        android:background="@drawable/fondo_contendores"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titulo_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="@string/titulo_recuperar_confirmado"
+                android:textAlignment="center"
+                android:textColor="@color/colores_textos_dark"
+                android:textSize="@dimen/texto_titulo" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="@string/texto_recuperar_confirmado"
+                android:textAlignment="center"
+                android:textColor="@color/colores_textos_dark"
+                android:textSize="@dimen/texto_secundario" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="@string/texto_recuperar_confirmado2"
+                android:textAlignment="center"
+                android:textColor="@color/colores_textos_dark"
+                android:textSize="@dimen/texto_secundario" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_volver"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="0.5"
+                android:backgroundTint="@color/colorDisrruptivo"
+                android:text="@string/btn_volver"
+                android:textAllCaps="true"
+                android:textColor="@color/button_text_color"
+                android:textSize="@dimen/texto_botones"
+                android:textStyle="bold"
+                app:cornerRadius="@dimen/botones_borde" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

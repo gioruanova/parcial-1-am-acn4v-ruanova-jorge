@@ -18,6 +18,12 @@
             android:name=".ConfirmacionTurno"
             android:exported="false" />
         <activity
+            android:name=".ConfirmacionResetPassword"
+            android:exported="false" />
+        <activity
+            android:name=".ResetPassword"
+            android:exported="true"/>
+        <activity
             android:name=".NuevoTurno"
             android:exported="false" />
         <activity
