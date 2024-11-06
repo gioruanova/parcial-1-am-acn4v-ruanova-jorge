@@ -1,6 +1,7 @@
 package com.example.parcial_1_am_acn4a_ruanova_jorge;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -16,10 +17,14 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
+        db = FirebaseFirestore.getInstance();
+        getUsersFirebase();
 
         // Deslogueo default en login inicial
         if (currentUser != null) {
@@ -118,4 +125,20 @@ public class MainActivity extends AppCompatActivity {
         );
         startActivity(intentVistaDoctor, options.toBundle());
     }
+
+    private void getUsersFirebase(){
+        db.collection("usuarios")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d("firebase-data", document.getId() + " => " + document.getData());
+                            }
+                        } else {
+                            Log.w("firebase-data", "Error getting documents.", task.getException());
+                        }
+                    }
+                });    }
 }

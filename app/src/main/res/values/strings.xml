@@ -9,7 +9,7 @@
     <!--body home-->
     <string name="titulo_home">"Bienvenido a Central de Turnos"</string>
 
-    <string name="login_input_uno">"Ingrese su numero de dni"</string>
+    <string name="login_input_uno">"Ingrese su correo electronico"</string>
     <string name="login_input_dos">"Ingrese su contraseña"</string>
     <string name="btn_login">"Ingresar"</string>
     <string name="btn_recuperar">"Recuperar Acceso"</string>
