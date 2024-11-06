@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Instancio la clase de usuarios para tener algunos usuarios ya registrados
+        // Tengo que cambiar esta parte para traerlo de firebase y realizar las validacion contra ese listado.
+        // Esos son los usuarios que voy a devolver
         ListadoUsuarios listado = new ListadoUsuarios();
 
         // Proceso de login y validaciones
@@ -51,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,
                         getString(R.string.error_log_campos_vacios), Toast.LENGTH_LONG).show();
             } else {
+
+                // Esta logica la voy a poder cambiar cuando firebase este listo
                 Usuario resultadoLogin = listado.validarPerfil(userEmail);
 
                 if (resultadoLogin == null) {
