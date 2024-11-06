@@ -7,15 +7,33 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityOptionsCompat;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 
 public class MainActivity extends AppCompatActivity {
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        // Deslogueo default en login inicial
+        if (currentUser != null) {
+            mAuth.signOut();
+        }
+
 
         // Instancio la clase de usuarios para tener algunos usuarios ya registrados
         ListadoUsuarios listado = new ListadoUsuarios();
@@ -29,20 +47,6 @@ public class MainActivity extends AppCompatActivity {
             String userEmail = inputEmail.getText().toString().trim();
             String userPass = inputPassword.getText().toString().trim();
 
-//            if (userDni.isEmpty() || userPass.isEmpty()) {
-//                Toast.makeText(MainActivity.this,
-//                        getString(R.string.error_log_campos_vacios), Toast.LENGTH_LONG).show();
-//            } else {
-//                Usuario resultadoLogin = listado.validarUsuario(userDni, userPass);
-//
-//                if (resultadoLogin == null) {
-//                    Toast.makeText(MainActivity.this,
-//                            getString(R.string.error_log_datos_invalidos), Toast.LENGTH_LONG).show();
-//                } else {
-//                    manejarVista(resultadoLogin.isDoctor(),resultadoLogin);
-//                }
-//            }
-
             if (userEmail.isEmpty() || userPass.isEmpty()) {
                 Toast.makeText(MainActivity.this,
                         getString(R.string.error_log_campos_vacios), Toast.LENGTH_LONG).show();
@@ -53,12 +57,21 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,
                             getString(R.string.error_log_datos_invalidos), Toast.LENGTH_LONG).show();
                 } else {
-                    manejarVista(resultadoLogin.isDoctor(), resultadoLogin);
-                    Log.i("usuario", resultadoLogin.getNombreUsuario());
+
+                    mAuth.signInWithEmailAndPassword(userEmail, userPass)
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        manejarVista(resultadoLogin.isDoctor(), resultadoLogin);
+
+                                    } else {
+                                        Toast.makeText(MainActivity.this,
+                                                getString(R.string.error_log_datos_invalidos), Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            });
                 }
-
-
-
             }
         });
 
